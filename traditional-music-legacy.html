@@ -10,6 +10,67 @@
         body {
             font-family: 'Noto Sans KR', sans-serif;
         }
+        /* 모달 배경 스타일 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* 모달 내용 스타일 */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            max-width: 90%; /* 화면 크기에 따라 조절 */
+            max-height: 90%; /* 화면 크기에 따라 조절 */
+            overflow: auto; /* 내용이 넘칠 경우 스크롤 */
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        /* 닫기 버튼 스타일 */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        /* iframe 컨테이너 (비디오 비율 유지를 위해) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 비율 (높이 / 너비 * 100) */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -23,7 +84,7 @@
     <main class="container mx-auto px-6 py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <a href="https://youtu.be/bFqL-k0jQH8" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_1">
                 <img src="https://placehold.co/600x400/a7c5eb/ffffff?font=noto-sans&text=%EB%B6%81%EC%B2%AD%20%EC%82%AC%EC%9E%90%EB%86%80%EC%9D%8C" alt="북청 사자놀음" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">1. 함경도 북청 사자놀음</h2>
@@ -42,9 +103,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/s-XXbnwe8H4" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_2">
                 <img src="https://placehold.co/600x400/f0b8b8/ffffff?font=noto-sans&text=%EB%B4%89%EC%82%B0%20%ED%83%88%EC%B6%A4" alt="봉산 탈춤" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">2. 황해도 봉산 탈춤</h2>
@@ -63,9 +124,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/D-1-4eLjzhE" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_3">
                 <img src="https://placehold.co/600x400/d8bfd8/ffffff?text=종묘제례악" alt="종묘제례악" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">3. 서울 종묘제례악</h2>
@@ -84,9 +145,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/rJ9t5xp_ibk" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_4">
                 <img src="https://placehold.co/600x400/b2dfdb/ffffff?text=남사당놀이" alt="안성 남사당놀이" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">4. 안성 남사당놀이</h2>
@@ -104,9 +165,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/ihLdxueHJso" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_5">
                 <img src="https://placehold.co/600x400/ffcc80/ffffff?text=강릉+농악" alt="강릉 농악" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">5. 강릉 농악</h2>
@@ -125,9 +186,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/_Ptmc_Fnj4k" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_6">
                 <img src="https://placehold.co/600x400/c5e1a5/ffffff?text=하회별신굿" alt="안동 하회별신굿" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">6. 안동 하회별신굿</h2>
@@ -146,9 +207,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/MtGim1KNcZw" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_7">
                 <img src="https://placehold.co/600x400/e6e6fa/ffffff?text=진주+검무" alt="진주 검무" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">7. 진주 검무</h2>
@@ -167,9 +228,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/zjg757sy8k8?list=RDzjg757sy8k8" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_8">
                 <img src="https://placehold.co/600x400/90caf9/ffffff?text=강강술래" alt="전라도 강강술래" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">8. 전라도 강강술래</h2>
@@ -188,9 +249,9 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtu.be/5q5JH3EvXfE" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <div class="card-item block bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-video-id="VIDEO_ID_9">
                 <img src="https://placehold.co/600x400/ffe0b2/ffffff?text=제주+칠머리당굿" alt="제주 칠머리당굿" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">9. 제주 칠머리당굿</h2>
@@ -209,17 +270,75 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
         </div>
     </main>
 
     <footer class="bg-gray-800 text-white mt-8 py-4">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 한국의 전통 무형문화재. All rights reserved.</p>
+            <p>© 2024 한국의 전통 무형문화재. All rights reserved.</p>
             <p class="text-sm text-gray-400 mt-1">본 페이지는 제공된 PDF 문서를 기반으로 제작되었습니다.</p>
         </div>
     </footer>
 
+    <div id="videoModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button" id="closeModal">&times;</button>
+            <div class="video-container" id="iframeContainer">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardItems = document.querySelectorAll('.card-item');
+            const videoModal = document.getElementById('videoModal');
+            const iframeContainer = document.getElementById('iframeContainer');
+            const closeModalBtn = document.getElementById('closeModal');
+
+            cardItems.forEach(card => {
+                card.addEventListener('click', () => {
+                    const videoId = card.dataset.videoId;
+                    // 실제 YouTube 영상 ID로 변경해야 합니다.
+                    // 예시: data-video-id="dQw4w9WgXcQ"
+                    const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+                    iframeContainer.innerHTML = `
+                        <iframe
+                            src="${youtubeEmbedUrl}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
+                    `;
+                    videoModal.classList.add('active');
+                });
+            });
+
+            // 모달 닫기 기능
+            closeModalBtn.addEventListener('click', () => {
+                videoModal.classList.remove('active');
+                // 모달 닫을 때 iframe 내용 초기화하여 비디오 재생 중지
+                iframeContainer.innerHTML = '';
+            });
+
+            // 모달 외부 클릭 시 닫기
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove('active');
+                    iframeContainer.innerHTML = '';
+                }
+            });
+
+            // 키보드 ESC 키로 모달 닫기
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                    videoModal.classList.remove('active');
+                    iframeContainer.innerHTML = '';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
