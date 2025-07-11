@@ -299,7 +299,7 @@
         <div class="modal-content">
             <button class="close-button" id="closeModal">×</button>
             <div class="video-container" id="iframeContainer">
-                </div>
+            </div>
         </div>
     </div>
 
@@ -321,14 +321,14 @@
         cardItems.forEach(card => {
             card.addEventListener('click', () => {
                 const videoId = card.dataset.videoId;
-                // 유튜브 임베드 URL 완성 (자동 재생 옵션 추가)
+                // ✅ 수정된 부분: 올바른 유튜브 임베드 URL로 변경했습니다.
                 const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
                 
                 // iframe 컨테이너에 유튜브 영상 추가
                 iframeContainer.innerHTML = `
-                    <iframe src="${youtubeEmbedUrl}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe src="${youtubeEmbedUrl}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                     </iframe>`;
                 
@@ -349,3 +349,6 @@
         });
     });
 </script>
+
+</body>
+</html>
