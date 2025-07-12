@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주 칠머리당 영등굿</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.pixabay.com/photo/2022/08/21/00/15/korea-7400200_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <header class="hero-bg">
+        <div class="container mx-auto px-6 py-24 md:py-32 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">제주 칠머리당 영등굿</h1>
+            <p class="text-lg md:text-xl font-light">바람의 신을 맞이하고 보내는 제주의 신성한 의례</p>
+            <p class="mt-4 text-sm text-yellow-300">중요무형문화재 제71호 | 유네스코 인류무형문화유산</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+
+        <!-- Introduction Section -->
+        <section class="max-w-4xl mx-auto mb-20 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">영등할망과 함께하는 평화와 풍요의 기원</h2>
+            <p class="text-lg leading-relaxed text-gray-600">
+                제주도에서는 매년 음력 2월, 고되고 위험한 바닷일의 평화와 풍요를 기원하기 위해 '영등굿'이라는 제사 의식을 지냅니다. 이 굿은 바람의 신 '영등할망'을 맞이하고 보내는 행사로, 특히 제주시 건입동의 칠머리당에서 열리는 영등굿이 가장 대표적입니다. 음력 2월 1일 영등신을 맞이하는 '환영제'와 14일 영등신을 보내는 '송별제'로 구성되며, 송별제에는 많은 사람들이 모여 성대한 굿판이 벌어집니다.
+            </p>
+        </section>
+
+        <!-- Features Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">주요 특징</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: 악사 = 심방 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://placehold.co/400x250/E2E8F0/4A5568?text=악사=심방" alt="악사=심방 이미지" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">악사(樂士) = 심방</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            굿의 악사(연주자)가 곧 심방(무당)입니다. 굿을 진행하는 심방들이 반주와 의례를 모두 담당하며 교대로 악기를 연주하는 독특한 형태를 보입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: 씨드림 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://placehold.co/400x250/E2E8F0/4A5568?text=씨드림" alt="씨드림 이미지" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">씨드림</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            해녀들이 채취하는 소라, 전복 등의 씨앗을 바다에 뿌리며 풍성한 수확과 번식을 기원하는 의식입니다. 자연과의 공존을 바라는 마음이 담겨있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: 배방선 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://placehold.co/400x250/E2E8F0/4A5568?text=배방선" alt="배방선 이미지" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">배방선(배 보내기)</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            짚으로 만든 작은 모형 배에 제사 음식을 실어 바다로 떠나보내는 의식입니다. 제주를 떠나는 영등신을 위로하고 안전하게 보내드리는 의미를 가집니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4: 영감놀이 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://placehold.co/400x250/E2E8F0/4A5568?text=영감놀이" alt="영감놀이 이미지" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">영감놀이</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            질병을 몰고 오는 '영감신(도깨비)'의 이야기를 연극처럼 재미있게 풀어내는 놀이입니다. 해학을 통해 역병을 물리치고 공동체의 안녕을 기원합니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Video Section -->
+        <section class="max-w-4xl mx-auto mt-20">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">영상으로 만나는 영등굿</h2>
+            <div class="bg-black rounded-lg shadow-xl overflow-hidden aspect-video">
+                <!-- Video placeholder -->
+                <div class="w-full h-full flex items-center justify-center bg-gray-200">
+                    <svg class="w-16 h-16 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 4V20L20 12L7 4Z" />
+                    </svg>
+                </div>
+                <!-- Example of embedded video (replace div above with this iframe)
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                -->
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="max-w-4xl mx-auto mt-20 pt-10 border-t border-gray-200">
+            <div class="bg-white rounded-lg p-8 text-center shadow-md">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">삶과 함께하는 의례</h3>
+                <p class="text-lg leading-relaxed text-gray-600">
+                    제주 칠머리당 영등굿은 단순한 미신이 아닌, 척박하고 거친 자연환경 속에서 살아온 제주 사람들의 삶의 지혜와 염원이 담긴 소중한 문화유산입니다. 선주, 어부, 그리고 해녀들의 안녕과 풍요를 바라는 간절한 마음이 굿의 모든 과정에 녹아있으며, 이는 오늘날까지 이어져 공동체의 화합과 평화를 기원하는 축제의 장이 되고 있습니다.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p class="text-sm">출처: <a href="https://www.gugak.go.kr" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 hover:underline">국립국악원</a> &lt;국악누리&gt; 2015. 5월호, <a href="https://chilmeoridang.or.kr" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 hover:underline">제주칠머리당영등굿보존회</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
