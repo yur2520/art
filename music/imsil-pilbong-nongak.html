@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공동체의 삶과 하나 된 예술, 임실 필봉농악</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Noto Sans KR 폰트를 기본으로 사용하고, Inter를 대체 폰트로 지정합니다. */
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+        }
+        /* 제목에 강렬한 느낌을 주기 위해 더 두꺼운 폰트를 사용합니다. */
+        h1, h2, h3 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 900;
+        }
+        /* 그라데이션 텍스트 효과를 위한 클래스 */
+        .gradient-text {
+            background: linear-gradient(to right, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* 비디오 플레이스홀더의 16:9 비율을 유지하기 위한 스타일 */
+        .aspect-video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .aspect-video-container > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 전체 페이지 컨테이너 -->
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+
+        <!-- 헤더 섹션 -->
+        <header class="text-center my-8 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                <span class="gradient-text">공동체의 삶과 하나 된 예술,</span><br>임실 필봉농악
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">임실의 풍요로운 문화유산, 치즈와 농악 이야기</p>
+        </header>
+
+        <!-- 메인 콘텐츠 섹션 -->
+        <main class="space-y-12 md:space-y-20">
+
+            <!-- 1. 임실과 치즈 이야기 섹션 -->
+            <section class="flex flex-col md:flex-row items-center gap-8 bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-green-700 mb-4">"임실"하면 무엇이 떠오르나요?</h2>
+                    <p class="text-base leading-relaxed text-gray-700">
+                        전북특별자치도에 위치한 임실군은 "치즈"로 아주 유명한 곳이지요. 우리나라 전통 음식은 아니지만, 국내 최초로 치즈를 생산한 곳이 바로 임실입니다. 벨기에 출신의 지정환 신부님이 지역의 가난한 주민들을 돕기 위해 치즈를 만든 것에서 그 역사가 시작되었다고 합니다. 오늘날 임실 치즈마을은 방문객에게 공동체의 따뜻한 역사와 아름다운 시골의 정취가 담긴 다채로운 체험을 선사하고 있습니다.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/a7f3d0/14532d?text=임실+치즈마을+풍경" alt="임실 치즈마을의 아름다운 풍경" class="rounded-xl shadow-md w-full h-auto object-cover">
+                </div>
+            </section>
+
+            <!-- 2. 필봉농악 소개 섹션 -->
+            <section class="text-center bg-green-100/50 p-8 rounded-2xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">임실의 또 다른 명물, 필봉농악</h2>
+                <p class="max-w-3xl mx-auto text-base leading-relaxed text-gray-700 mb-6">
+                    그런데 임실에는 치즈 외에도 아주 특별한 명물이 하나 더 있습니다. 바로 국가무형문화재 제11-5호로 지정된 '필봉농악'입니다. 이 농악은 필봉리 마을 주민들의 노동과 생활 속에서 자연스럽게 생겨난 소중한 문화유산으로, 농사일의 고단함을 잊고 마을의 안녕과 풍요를 기원하던 전통 음악이자 신명나는 놀이입니다.
+                </p>
+                <img src="https://placehold.co/800x450/4ade80/166534?text=필봉농악+공연+모습" alt="신명나는 필봉농악 공연" class="rounded-xl shadow-md w-full h-auto object-cover">
+            </section>
+
+            <!-- 3. 필봉농악의 특징 섹션 -->
+            <section class="flex flex-col md:flex-row-reverse items-center gap-8 bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-green-700 mb-4">모두가 함께 즐기는 '판'</h2>
+                    <p class="text-base leading-relaxed text-gray-700 mb-4">
+                        필봉농악은 다른 지역의 농악에 비해 '잡색(雜色)'의 수가 많고 그 역할도 다양한 것이 큰 특징입니다. 잡색은 농악대와 함께 춤을 추고 재주를 부리며 공연의 흥을 한껏 돋우는 역할을 합니다.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-700">
+                        이는 필봉농악이 연주자뿐만 아니라 구경하는 모든 사람이 하나 되어 어울리는 '판'을 중요하게 생각한다는 것을 보여줍니다. 농악과 함께 어우러져 풍년을 기원하고 즐거움을 나누는 동안, 마을 전체는 신명으로 가득 찼을 것입니다.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/dcfce7/14532d?text=농악의+잡색들" alt="다양한 역할을 하는 농악의 잡색들" class="rounded-xl shadow-md w-full h-auto object-cover">
+                </div>
+            </section>
+            
+            <!-- 4. 공통점과 마무리 섹션 -->
+            <section class="bg-gray-800 text-white p-10 rounded-2xl shadow-2xl text-center">
+                <h2 class="text-3xl font-bold mb-4">임실 치즈와 필봉농악의 <span class="text-green-400">공통점</span></h2>
+                <p class="max-w-3xl mx-auto text-base leading-relaxed text-gray-300">
+                    전혀 달라 보이는 임실 치즈와 필봉농악 사이에는 깊은 공통점이 있습니다. 바로 '이웃을 생각하는 따뜻한 마음'과 '주민들의 우직한 노력'이 깃들어 있다는 점입니다. 이러한 임실 사람들의 온정이 척박했던 땅을 오늘날의 풍요롭고 아름다운 고장으로 만든 진정한 원동력이 아닐까요?
+                </p>
+            </section>
+
+            <!-- 5. 필봉농악 감상하기 섹션 -->
+            <section class="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl text-center">
+                <h2 class="text-3xl font-bold text-green-700 mb-4">필봉농악 감상해 보기</h2>
+                <p class="max-w-3xl mx-auto text-base leading-relaxed text-gray-700 mb-6">
+                    신명나는 필봉농악의 가락을 영상으로 직접 느껴보세요.
+                </p>
+                <div class="aspect-video-container bg-gray-200 rounded-lg overflow-hidden shadow-inner relative group cursor-pointer">
+                    <!-- 영상 자리 표시자 -->
+                    <img src="https://placehold.co/1280x720/1c1917/ffffff?text=필봉농악+공연+영상" alt="필봉농악 공연 영상" class="object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 푸터 섹션 (수정된 부분) -->
+        <footer class="text-center mt-16 mb-8 text-sm text-gray-600 leading-relaxed">
+            <p>
+                출처: <a href="https://www.gugak.go.kr" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:underline font-semibold">국립국악원</a> &lt;국악누리&gt; 2017. 5월호
+            </p>
+            <p class="mt-2">
+                © 2018 <a href="https://www.gugak.go.kr" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:underline font-semibold">국립국악원</a>. 모든 권리 보유 Copyright (© NATIONAL GUGAK CENTER ALL RIGHTS RESERVED.)
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
