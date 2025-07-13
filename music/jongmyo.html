@@ -136,30 +136,12 @@
             padding-left: 0;
         }
 
-        /* --- 이미지 플레이스홀더 --- */
-        .image-placeholder {
+        /* --- [NEW] 실제 이미지 스타일 --- */
+        .real-image {
             width: 100%;
-            padding-top: 100%; /* 1:1 비율 */
-            background-color: #e9ecef;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #868e96;
-            font-size: 0.9em;
-            position: relative;
-        }
-        .image-placeholder-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        .image-placeholder-content svg {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 5px;
+            height: auto; /* 이미지의 원래 비율을 유지합니다. */
+            display: block; /* 이미지 아래의 불필요한 공간을 제거합니다. */
+            border-radius: 8px; /* 카드 모서리와 일치시킵니다. */
         }
         
         /* --- 사직(社稷) 카드 레이아웃 --- */
@@ -178,11 +160,8 @@
             flex: 0 0 150px;
             width: 150px;
         }
-        .sa-jik-image .image-placeholder {
-            padding-top: 66.66%; /* 3:2 비율 */
-        }
 
-        /* --- 반응형 비디오 컨테이너 (FIXED) --- */
+        /* --- 반응형 비디오 컨테이너 --- */
         .video-container {
             position: relative;
             width: 100%;
@@ -200,7 +179,7 @@
             border: 0; /* iframe 기본 테두리 제거 */
         }
 
-        /* --- 반응형 웹 디자인 (FIXED) --- */
+        /* --- 반응형 웹 디자인 --- */
         @media (max-width: 600px) {
             .title-header h1 {
                 font-size: 2em;
@@ -227,6 +206,7 @@
             <h1>종묘제례악의 이해</h1>
         </div>
 
+        <!-- ==================== 배경 이해하기 카드 (시작) ==================== -->
         <div class="card">
             <h2>배경 이해하기</h2>
             
@@ -251,9 +231,9 @@
                         <li><strong>직(稷):</strong> 곡식의 신에게 제사 지내는 곳</li>
                     </ul>
                 </div>
-               <img src="농사.png" alt="농사하는 모습" class="rounded-xl shadow-md w-full h-auto object-cover">
-                        </div>
-                    </div>
+                <!-- [MODIFIED] 플레이스홀더를 img 태그로 교체 -->
+                <div class="sa-jik-image">
+                    <img src="농사.png" alt="농사하는 모습" class="real-image">
                 </div>
             </div>
             <p>
@@ -272,17 +252,17 @@
             </div>
             
             <h4>영상으로 보는 종묘사직-역사채널e:종묘사직을 생각하소서!</h4>
-            <!-- FIXED: Responsive video container applied -->
             <div class="video-container">
-                <!-- REMOVED: width and height attributes for responsiveness -->
                 <iframe src="https://www.youtube.com/embed/wdv9SAZh9Qg?si=qoEKtXP2JOWvtcjU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
+        <!-- ==================== 배경 이해하기 카드 (끝) ==================== -->
 
 
+        <!-- [MODIFIED] 플레이스홀더를 img 태그로 교체 -->
         <div class="card card-with-image">
             <div class="image-placeholder-wrapper">
-                <img src="종묘제례1.png" alt="종묘제례악 사진" class="rounded-xl shadow-md w-full h-auto object-cover">
+                <img src="종묘제례1.png" alt="종묘제례악 사진" class="real-image">
             </div>
             <div class="text-content">
                 <h2>종묘제례악이란?</h2>
@@ -295,9 +275,10 @@
             </div>
         </div>
 
+        <!-- [MODIFIED] 플레이스홀더를 img 태그로 교체 -->
         <div class="card card-with-image">
             <div class="image-placeholder-wrapper">
-                <img src="종묘제례악악보.png" alt="종묘제례악 악보" class="rounded-xl shadow-md w-full h-auto object-cover">
+                <img src="종묘제례악악보.png" alt="종묘제례악 악보" class="real-image">
             </div>
             <div class="text-content">
                 <h2>가사와 음악은 어떤 특징이 있나요?</h2>
@@ -369,9 +350,7 @@
 
         <div class="card">
             <h2>종묘제례악 영상으로 보기</h2>
-            <!-- FIXED: Responsive video container applied -->
             <div class="video-container">
-                <!-- REMOVED: width and height attributes for responsiveness -->
                <iframe src="https://www.youtube.com/embed/D-1-4eLjzhE?si=wSIZssy7YCPt5P6r" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
