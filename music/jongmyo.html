@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종묘제례악의 이해</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        /* --- 타이틀 헤더 스타일 --- */
+        .title-header {
+            background: linear-gradient(to right, #36454F, #2C3E50);
+            color: #ffffff;
+            padding: 50px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .title-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+        /* --- 타이틀 헤더 스타일 끝 --- */
+
+        h2 {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            margin-top: 0;
+            font-weight: 700;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+            font-weight: 700;
+        }
+        h4 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        p {
+            text-indent: 1em;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: #c0392b;
+            font-weight: 700;
+        }
+        
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .section-title {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        
+        .subsection-title {
+            color: #2980b9;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+        .subsection-title:first-child {
+            margin-top: 0;
+        }
+
+        .highlight {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .quote {
+            border-left: 3px solid #7f8c8d;
+            padding-left: 15px;
+            font-style: italic;
+            color: #555;
+            margin-top: 20px;
+        }
+        .unesco {
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #eafaf1;
+            color: #16a085;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        /* --- 이미지 + 텍스트 카드 스타일 --- */
+        .card-with-image {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .image-placeholder-wrapper {
+            flex: 0 0 180px; /* 이미지 영역 고정 너비 */
+            width: 180px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            padding-top: 100%; /* 1:1 비율 */
+            background-color: #e9ecef;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #868e96;
+            font-size: 0.9em;
+            position: relative;
+        }
+        .image-placeholder-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .image-placeholder-content svg {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .text-content {
+            flex: 1; /* 남은 공간 모두 차지 */
+        }
+        
+        /* --- 사직(社稷) 카드 레이아웃 수정 --- */
+        .sa-jik-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .sa-jik-text {
+            flex: 1;
+        }
+        .sa-jik-text ul {
+            padding-left: 0;
+        }
+        .sa-jik-image {
+            flex: 0 0 150px;
+            width: 150px;
+        }
+        .sa-jik-image .image-placeholder {
+            padding-top: 66.66%; /* 3:2 비율 */
+        }
+
+        .video-placeholder-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 비율 */
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #2d3436;
+            background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        .video-placeholder svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* 반응형 웹 디자인 */
+        @media (max-width: 600px) {
+            .title-header h1 {
+                font-size: 2em;
+            }
+            .card-with-image, .sa-jik-container {
+                flex-direction: column;
+            }
+            .image-placeholder-wrapper, .sa-jik-image {
+                width: 100%;
+                flex-basis: auto;
+                margin-bottom: 20px;
+            }
+            .sa-jik-container {
+                gap: 0;
+            }
+            .sa-jik-image {
+                margin-top: 15px;
+                margin-bottom: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title-header">
+            <h1>종묘제례악의 이해</h1>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">배경 이해하기</h2>
+            
+            <h3 class="subsection-title">조선과 조상님께 드리는 제사</h3>
+            <p>
+                조선은 조상님을 매우 소중히 여기고 제사를 중요하게 생각하는 나라였어요. 조선을 세운 것도 조상님들의 도움 덕분이라고 생각했기 때문에, 종묘와 사직을 나라의 가장 중요한 곳으로 여겼답니다.
+            </p>
+
+            <h3 class="subsection-title">종묘는 어떤 곳인가요?</h3>
+            <p>
+                종묘는 조선시대 임금님과 왕비님, 그리고 나라에 큰 공을 세운 사람들의 위패(조상님을 기리는 나무판)를 모셔둔 사당이에요. 나라에서 가장 중요한 곳이기 때문에 가장 아름답고 엄숙하게 지었답니다.
+            </p>
+
+            <h3 class="subsection-title">사직(社稷)은 무엇인가요?</h3>
+            <p>
+                사직은 종묘와 함께 나라의 근본이 되는 중요한 곳이에요.
+            </p>
+            <div class="highlight sa-jik-container">
+                <div class="sa-jik-text">
+                    <ul>
+                        <li><strong>사(社):</strong> 땅의 신에게 제사 지내는 곳</li>
+                        <li><strong>직(稷):</strong> 곡식의 신에게 제사 지내는 곳</li>
+                    </ul>
+                </div>
+                <div class="image-placeholder-wrapper sa-jik-image">
+                    <div class="image-placeholder">
+                        <div class="image-placeholder-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M1 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM.5 5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-4 5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zM1 12.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/></svg>
+                            <span>토지와 곡식</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                옛날 사람들은 농사가 가장 중요했어요. 땅이 있어야 곡식을 기를 수 있고, 곡식이 잘 자라야 백성들이 배불리 먹을 수 있었거든요. 그래서 임금님은 땅과 곡식의 신께 정성껏 제사를 지내서 나라가 평안하고 백성들이 행복하기를 기원했답니다.
+            </p>
+
+            <h3 class="subsection-title">종묘와 사직을 함께 말하는 이유</h3>
+            <div class="highlight">
+                <ul>
+                    <li><strong>종묘:</strong> 조상님들께 제사 지내는 곳 (사람과 관련)</li>
+                    <li><strong>사직:</strong> 땅과 곡식의 신께 제사 지내는 곳 (자연과 관련)</li>
+                </ul>
+                <p style="text-indent: 0; margin-top: 15px;">
+                    이 둘을 합쳐서 <strong>"종묘사직"</strong>이라고 하면 <strong>"나라의 가장 중요한 기초"</strong>라는 뜻이에요.
+                </p>
+            </div>
+            
+            <h4>영상으로 보는 종묘사직</h4>
+            <div class="video-placeholder-container">
+                <div class="video-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.621 7.879c.23-.493.379-1.033.379-1.614C22 4.018 20.982 3 19.735 3H4.265C3.018 3 2 4.018 2 6.265v11.47C2 19.982 3.018 21 4.265 21h15.47C20.982 21 22 19.982 22 17.735c0-.581-.149-1.121-.379-1.614l-2.54-5.252 2.54-5.252zM9.5 15.5V8.5l6 3.5-6 3.5z"/></svg>
+                    <span>종묘사직 영상 (16:9)</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card card-with-image">
+            <div class="image-placeholder-wrapper">
+                <div class="image-placeholder">
+                    <div class="image-placeholder-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                          <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                        </svg>
+                        <span>악가무일체</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-content">
+                <h2>종묘제례악이란?</h2>
+                <p>
+                    종묘제례악은 그냥 듣기만 하는 음악이 아니에요. 악기 연주(樂), 노래(歌), 춤(舞)이 모두 함께 어우러진 종합 예술이랍니다. 이를 '악가무일체'라고 해요.
+                </p>
+                <p class="quote">
+                    제사는 예의와 격식을 매우 중요하게 여기는데, 이때 아름다운 음악과 춤을 통해 마음을 정성스럽게 만들어 완전한 제사가 되도록 하는 거예요.
+                </p>
+            </div>
+        </div>
+
+        <div class="card card-with-image">
+            <div class="image-placeholder-wrapper">
+                <div class="image-placeholder">
+                    <div class="image-placeholder-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                          <path fill-rule="evenodd" d="M9 3v10H8V3h1z"/>
+                          <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/>
+                        </svg>
+                        <span>가사와 음악</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-content">
+                <h2>가사와 음악은 어떤 특징이 있나요?</h2>
+                <p>
+                    노래 가사는 조선을 세우고 나라를 지킨 임금님들의 위대한 이야기를 담고 있어요. 하지만 음악은 매우 차분하고 장엄해서 마치 하늘나라 같은 느낌을 줘요.
+                </p>
+                <p>
+                    이런 음악은 다른 나라 사람들도 듣고 깜짝 놀랄 만큼 독특하고 웅장하답니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>일무(佾舞)는 어떤 모습인가요?</h2>
+            <p>
+                종묘제례악에 나오는 춤을 '일무(佾舞)'라고 해요.
+            </p>
+            <div class="highlight">
+                <strong>일(佾)의 의미:</strong> '일(佾)'은 "줄을 서서 춤추다"라는 뜻으로, 춤꾼들이 정확한 대형을 이루어 질서정연하게 추는 춤을 말해요. 조선에서는 48명의 춤꾼이 6줄로 서서 춤을 췄답니다.
+            </div>
+            <p>
+                이 춤은 감정을 드러내지 않고 매우 정중하고 차분한 동작으로 춰요. 개인의 표현보다는 전체의 조화와 질서를 중시하는 것이 특징이에요.
+            </p>
+
+            <h3>두 가지 종류가 있어요:</h3>
+            
+            <h4>보태평(保太平)</h4>
+            <p>임금님의 어진 마음과 학문을 기리는 춤</p>
+            <ul>
+                <li>
+                    <strong>문덕(文德)을 칭송하는 내용</strong>
+                    <ul style="padding-left: 20px; font-size: 0.9em;">
+                        <li>문덕: 학문과 교화로 이루어지는 덕행</li>
+                        <li>무력이 아닌 지혜와 덕으로 나라를 다스리는 것</li>
+                        <li>백성을 가르치고 문화를 발전시키는 평화적 통치</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>정대업(定大業)</h4>
+            <p>임금님의 용감한 무공(武功)을 칭찬하는 춤</p>
+            <ul>
+                <li>
+                    <strong>무공(武功)을 기리는 내용</strong>
+                    <ul style="padding-left: 20px; font-size: 0.9em;">
+                        <li>무공: 전쟁에서 나라를 지키고 적을 물리친 군사적 공로</li>
+                        <li>나라를 세우고 백성을 보호한 용맹한 업적</li>
+                        <li>외침으로부터 조선을 지켜낸 공훈</li>
+                    </ul>
+                </li>
+            </ul>
+             <p class="quote">
+                이 춤들은 화려한 역사를 넘어서 영원히 평화로운 나라가 되기를 바라는 마음을 담고 있어요.
+            </p>
+        </div>
+        
+        <div class="card">
+            <h2>종묘제례악의 의미</h2>
+            <p>
+                종묘제례악은 조선시대 사람들이 조상님께 감사하고 나라의 평안을 기원하는 마음을 음악과 춤으로 표현한 소중한 문화유산이랍니다.
+            </p>
+            <p>
+                단순히 아름다운 예술 작품이 아니라, 조선 사람들의 마음과 정신이 담긴 살아있는 역사이기도 해요.
+            </p>
+            <div class="unesco">
+                현재는 유네스코 세계무형문화유산으로 등재되어 전 세계가 인정하는 소중한 우리 문화가 되었답니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>종묘제례악 영상으로 보기</h2>
+            <div class="video-placeholder-container">
+                <div class="video-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21.621 7.879c.23-.493.379-1.033.379-1.614C22 4.018 20.982 3 19.735 3H4.265C3.018 3 2 4.018 2 6.265v11.47C2 19.982 3.018 21 4.265 21h15.47C20.982 21 22 19.982 22 17.735c0-.581-.149-1.121-.379-1.614l-2.54-5.252 2.54-5.252zM9.5 15.5V8.5l6 3.5-6 3.5z"/>
+                    </svg>
+                    <span>종묘제례악 영상 (16:9)</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
