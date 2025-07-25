@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>5학년을 위한 사진 촬영 기법</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +37,7 @@
 
             <!-- 1. 구도: 사진의 뼈대 세우기 -->
             <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-indigo-800/70">1. 구도: 사진의 뼈대 세우기</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-indigo-800/70">1. 구도</h2>
                 <p class="text-base sm:text-lg leading-relaxed mb-8">
                     구도는 사진 속 대상들을 어떻게 배치할지 결정하는 것을 의미합니다. 좋은 구도는 사진을 안정감 있고 흥미롭게 만들어 줍니다. 좋은 구도에는 여러 가지가 있지만, 그 중 널리 알려진 대표적인 방법을 소개합니다. 
                 </p>
@@ -115,7 +116,7 @@
                                 </div>
                                 
                                 <div class="flex-col items-center">
-                                    <div class="bg-orange-50 p-2 rounded-xl w-full grid grid-cols-2 gap-4">
+                                    <div class="bg-orange-50 p-4 rounded-xl w-full grid grid-cols-2 gap-4">
                                        <div class=w-full>
                                        <img src="ng01.jpg" 
                                             alt="선행선 구도 예시 4" 
@@ -196,7 +197,8 @@
                                     대칭 구도는 사진에 균형감, 안정감, 그리고 강렬한 인상을 줍니다.
                                 </p>
                             </div>
-                            <div class="md:w-1/2 w-full grid grid-cols-2 gap-4">
+                            <div class="flex flex-col md:w-1/2 items-center">
+                            <div class="w-full grid grid-cols-2 gap-4">
                                 <img src="horizontal-symmetry.jpg" 
                                      alt="대칭 구도 예시 1" 
                                      class="rounded-xl w-full h-full object-cover shadow-md"
@@ -204,20 +206,22 @@
                                 <img src="vertical-symmetry.jpg" 
                                      alt="대칭 구도 예시 2" 
                                      class="rounded-xl w-full h-auto object-cover shadow-md"
-                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/FAF5FF/5B21B6?text=Image+Not+Found';">
+                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/FAF5FF/5B21B6?text=Image+Not+Found';">                                
+                             </div>      
                                 <p class="text-right text-xs text-slate-400 mb-4">Photography by Justin Hein.</p>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. 빛: 빛의 방향 활용하기 -->
+            <!-- 2. 빛 -->
             <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-teal-600">2. 빛: 빛의 방향 활용하기</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-teal-600">2. 빛</h2>
                 <p class="text-base sm:text-lg leading-relaxed mb-6">
-                    빛은 사진의 분위기를 만드는 가장 중요한 요소입니다. 빛이 어디에서 오는지에 따라 사진의 느낌이 크게 달라집니다.
+                    빛은 사진의 분위기를 만드는 가장 중요한 요소입니다. 빛의 위치와 강도에 따라 사진의 느낌이 크게 달라집니다.
                 </p>
+                <h3 class="text-xl font-bold mb-2 border-b-2 py-1">방향</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <h3 class="text-xl font-bold mb-2">순광</h3>
@@ -244,6 +248,28 @@
                         <p class="text-base">피사체의 뒤에서 빛이 오는 '역광'은 대상의 윤곽선을 강조하여 실루엣처럼 보이게 만들고, 신비로운 분위기를 연출합니다.</p>
                     </div>
                 </div>
+                <h3 class="text-xl font-bold mb-2 border-b-2 py-1">명암 대비</h3>
+                <div class="flex flex-col md:flex-row-reverse gap-6 items-center">
+                            <div class="md:w-1/2">
+                                <p class="text-base leading-relaxed mb-4">
+                                    빛의 밝고 어두운 정도를 사용하여 분위기를 바꾸거나 대상을 강조할 수 있습니다.</p>
+                                 </div>
+                                 <div class="md:w-1/2 w-full grid grid-cols-2 gap-4">
+                              <div class=w-full>
+                                <img src="light01.jpg" 
+                                     alt="조명 예시1" 
+                                     class="rounded-xl w-full h-full object-cover shadow-md"
+                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/FEE2E2/991B1B?text=Image+Not+Found';">
+                                <p class="text-right text-xs text-slate-400 mb-4">Photography by Ana Nogrey(Unsplash).</p>
+                               </div>
+                               <div class=w-full>
+                                <img src="light02.jpg" 
+                                     alt="조명 예시 2" 
+                                     class="rounded-xl w-full h-auto object-cover shadow-md"
+                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/D1FAE5/065F46?text=Image+Not+Found';">
+                                <p class="text-right text-xs text-slate-400 mb-4">Photography by -.</p>
+                               </div>
+                                      
             </section>
 
             <!-- 3. 초점: 원하는 곳을 선명하게 -->
