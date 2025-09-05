@@ -65,25 +65,24 @@
 
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            background: #fff;
-            border: 2px solid #333;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background: #ffffff;
+            /* border: 2px solid #666666c2;*/
+            box-shadow: inset -1px 0px 1px rgba(134, 134, 134, 0.4), 0 2px 5px rgba(0, 0, 0, 0.4);
             transition: background 0.2s;
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <header class="text-center py-16 px-4 bg-white shadow-lg">
-        <h1 class="text-4xl md:text-6xl font-black mb-4">
+    <header class="text-center py-10 px-4 bg-white shadow-lg">
+        <h1 class="text-6xl font-black mb-2">
             <span class="gradient-text">Colors</span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-             <br>
-            색상, 명도, 채도와 이들이 가진 특성을 알아봅시다.
+        <p class="text-center text-gray-600 mx-2">             
+            색상, 명도, 채도와 색의 특성을 알아봅시다.
         </p>
     </header>
 
@@ -91,7 +90,8 @@
 
         <section id="basics" class="my-12">
             <h2 class="text-3xl font-bold text-center mb-8">1. 색상, 명도, 채도 </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-8">
                 <div class="card">
                     <h3 class="text-2xl font-bold mb-3">색상 (Hue)</h3>
                     <p class="mb-4 card-content">빨강, 파랑, 노랑과 같이 색을 구별하는 색 고유의 이름을 뜻합니다.</p>
@@ -134,14 +134,15 @@
                         <span class="font-bold text-xs">맑음<br>높은 채도</span>
                     </div>
                 </div>
-                <div class="card md:row-span-3">
+                </div>
+                <div class="card md:row-span-1">
                     <h3 class="text-2xl font-bold mb-3">색 직접 만들어보기</h3>
-                    <p class="mb-4 card-content">슬라이더를 움직여 색상, 채도, 명도를 직접 조절해보세요!</p>
-                    <div class="flex flex-col items-center gap-4 mb-6">
-                        <div id="color-swatch" class="w-24 h-24 border-2 border-gray-200 rounded-lg shadow-inner"></div>
-                        <div id="hex-value" class="font-mono text-lg font-bold bg-gray-100 px-4 py-2 rounded-md">#FF0000</div>
+                    <p class="mb-8 card-content">슬라이더를 움직여 색상, 채도, 명도를 직접 조절해보세요.</p>
+                    <div class="flex flex-col items-center gap-2 mb-4">
+                        <div id="color-swatch" class="w-24 h-24 border-0 border-gray-200 rounded-lg shadow-md"></div>
+                        <div id="hex-value" class="font-mono text-sm text-zinc-100 bg-white px-2 py-2 rounded-lg">#FF0000</div> 
                     </div>
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col gap-5 mb-4">
                         <div class="flex flex-col gap-2">
                             <label for="hue-slider" class="text-sm font-bold text-gray-600">색상 (Hue)</label>
                             <input type="range" id="hue-slider" min="0" max="360" value="0">
@@ -155,7 +156,7 @@
                             <input type="range" id="luminosity-slider" min="0" max="100" value="50">
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </section>
 
@@ -193,7 +194,7 @@
                 <div class="card md:flex-row items-center">
                        <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
                         <span class="tag bg-blue-100 text-blue-800">명도 대비</span>
-                        <p class="mt-2">밝고 어두움으로 만드는 선명함! 명시성과 가독성에 가장 큰 영향을 줘요.</p>
+                        <p class="mt-2">밝고 어두움으로 선명한 정도를 조절할 수 있어요. 명시성과 가독성에 가장 큰 영향을 줘요.</p>
                     </div>
                     <div class="md:w-2/3 flex-grow grid grid-cols-2 gap-4">
                         <div class="p-4 rounded-lg bg-black flex items-center justify-center text-white font-bold text-xl shadow-inner h-20">
@@ -207,7 +208,7 @@
                 <div class="card md:flex-row items-center">
                        <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
                         <span class="tag bg-indigo-100 text-indigo-800">채도 대비</span>
-                        <p class="mt-2">선명한 색을 더욱 돋보이게! 탁한 색과 함께 있을 때 효과가 커져요.</p>
+                        <p class="mt-2">채도가 낮은 색에 채도가 높은 색이 놓이면 채도가 높은 색이 더 돋보이게 됩니다.</p>
                     </div>
                     <div class="md:w-2/3 flex-grow grid grid-cols-2 gap-4">
                         <div>
@@ -232,7 +233,7 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="card text-left">
                     <h3 class="text-2xl font-bold mb-3">주목성 (Attraction)</h3>
-                    <p class="mb-6 card-content">"어? 저게 뭐지?" 하고 시선을 확 끄는 힘이에요. 따뜻한 색, 높은 채도를 지닌 색은 그 자체로 사람들의 시선을 끌어요.</p>
+                    <p class="mb-6 card-content">"어? 저게 뭐지?" 하고 시선을 이끄는 힘이에요. 따뜻한 색이나 높은 채도를 지닌 색은 상대적으로 확장 혹은 돌출되어 보이는 효과가 있고 사람들의 시선을 끌어요.</p>
                     <div class="flex justify-center space-x-4">
                         <div class="w-40 h-20 bg-red-600 rounded-lg flex items-center justify-center text-white text-3xl font-black shadow-lg transform -rotate-6">SALE</div>
                         <div class="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-black text-xl font-bold shadow-lg border-4 border-black">
@@ -245,21 +246,21 @@
                     <p class="mb-6 card-content">색이 조합되었을 때 멀리 떨어져 있거나 주변이 어둡더라도 잘 보이는 정도를 뜻해요. 명시성이 낮은 조합을 쓰면 글자를 한 눈에 알아보고 읽기가 어려워져요.</p>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <p class="text-sm font-bold mb-2 text-green-700">명시성이 높은 조합</p>
+                            <p class="text-center text-sm font-bold mb-2 text-green-700">명시성이 높은 조합</p>
                             <div class="p-3 rounded-lg bg-white border border-gray-300 mb-2">
-                                <p class="text-black font-bold text-base md:text-lg">흰색과 검은색의 조합</p>
+                                <p class="text-center text-black font-bold text-base md:text-lg">흰색과 검은색의 조합</p>
                             </div>
                             <div class="p-3 rounded-lg bg-black">
-                                <p class="text-yellow-300 font-bold text-base md:text-lg">검은색과 노란색의 조합</p>
+                                <p class="text-center text-yellow-300 font-bold text-base md:text-lg">검은색과 노란색의 조합</p>
                             </div>
                         </div>
                         <div>
-                            <p class="text-sm font-bold mb-2 text-red-700">명시성이 낮은 조합</p>
+                            <p class="text-center text-sm font-bold mb-2 text-red-700">명시성이 낮은 조합</p>
                             <div class="p-3 rounded-lg bg-white border border-gray-300 mb-2">
-                                <p class="text-yellow-300 font-bold text-base md:text-lg">흰색과 노란색의 조합</p>
+                                <p class="text-center text-yellow-300 font-bold text-base md:text-lg">흰색과 노란색의 조합</p>
                             </div>
                             <div class="p-3 rounded-lg bg-blue-600">
-                                <p class="text-red-600 font-bold text-base md:text-lg">파란색과 빨간색의 조합</p>
+                                <p class="text-center text-red-600 font-bold text-base md:text-lg">파란색과 빨간색의 조합</p>
                             </div>
                         </div>
                     </div>
