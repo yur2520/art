@@ -19,7 +19,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-fill-color: transparent;
+            
         }
         .card {
             background-color: white;
@@ -29,6 +29,7 @@
             transition: transform 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
+            
         }
         .card:hover {
             transform: translateY(-5px);
@@ -74,6 +75,7 @@
                         <div class="w-10 h-10 rounded-full bg-yellow-400"></div>
                         <div class="w-10 h-10 rounded-full bg-green-500"></div>
                         <div class="w-10 h-10 rounded-full bg-blue-500"></div>
+                        <div class="w-10 h-10 rounded-full bg-fuchsia-500"></div>
                     </div>
                 </div>
                 <!-- 명도 Card -->
@@ -81,7 +83,7 @@
                     <h3 class="text-2xl font-bold mb-3">명도 (Value)</h3>
                     <p class="mb-4 card-content">색의 '밝고 어두운' 정도를 뜻합니다. 밝을수록 명도가 높다고 하고, 어두울수록 명도가 낮다고 해요.</p>
                     <div class="flex justify-between items-center p-4 bg-gray-100 rounded-lg">
-                        <span class="font-bold">어두움</span>
+                        <span class="font-bold text-right">어두움</p>낮은 명도</span>
                         <div class="flex space-x-1">
                             <div class="w-6 h-10 rounded bg-gray-900 shadow-md"></div>
                             <div class="w-6 h-10 rounded bg-gray-700 shadow-md"></div>
@@ -90,23 +92,24 @@
                             <div class="w-6 h-10 rounded bg-gray-100 shadow-md"></div>
                             <div class="w-6 h-10 rounded bg-gray-50 shadow-md"></div>
                         </div>
-                         <span class="font-bold">밝음</span>
+                         <span class="font-bold">밝음</p>높은 명도</span>
                     </div>
                 </div>
                 <!-- 채도 Card -->
                 <div class="card">
                     <h3 class="text-2xl font-bold mb-3">채도 (Saturation)</h3>
-                    <p class="mb-4 card-content">색의 '맑고 탁한' 정도예요. 채도가 높으면 쨍하고 선명하고, 낮으면 흐릿하고 칙칙해져요.</p>
+                    <p class="mb-4 card-content">색의 '맑고 탁한' 정도예요. 맑고 선명할수록 채도가 높다고 해요. 반대로 채도가 낮으면 흐릿하고 탁해져요.</p>
                     <div class="flex justify-between items-center p-4 bg-gray-100 rounded-lg">
-                        <span class="font-bold">탁하게</span>
+                        <span class="font-bold text-right">탁함</p>낮은 채도</span>
                         <div class="flex space-x-1">
-                            <div class="w-6 h-10 rounded" style="background-color: #d1a0a0;"></div>
-                            <div class="w-6 h-10 rounded" style="background-color: #d97878;"></div>
-                            <div class="w-6 h-10 rounded" style="background-color: #e64d4d;"></div>
-                            <div class="w-6 h-10 rounded" style="background-color: #f22e2e;"></div>
-                            <div class="w-6 h-10 rounded" style="background-color: #ff0000;"></div>
+                            <div class="w-6 h-10 rounded shadow-md" style="background-color: #cebaba;"></div>
+                            <div class="w-6 h-10 rounded shadow-md" style="background-color: #d1a0a0;"></div>
+                            <div class="w-6 h-10 rounded shadow-md" style="background-color: #d97878;"></div>
+                            <div class="w-6 h-10 rounded shadow-md" style="background-color: #e64d4d;"></div>
+                            <div class="w-6 h-10 rounded shadow-md" style="background-color: #f22e2e;"></div>
+                            <div class="w-6 h-10 rounded shadow-md" style="background-color: #ff0000;"></div>
                         </div>
-                        <span class="font-bold">선명하게</span>
+                        <span class="font-bold">맑음</p>높은 채도</span>
                     </div>
                 </div>
             </div>
@@ -114,13 +117,13 @@
 
         <!-- Section 2: 대비 -->
         <section id="contrast" class="my-16">
-            <h2 class="text-3xl font-bold text-center mb-8">2. 대비의 마법: 시선을 사로잡는 기술 🪄</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">2. 색에 의한 대비</h2>
             <div class="space-y-8">
                 <!-- 색상 대비 -->
                 <div class="card md:flex-row items-center">
                     <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
                         <span class="tag bg-red-100 text-red-800">색상 대비</span>
-                        <p class="mt-2">서로 다른 색상이 만나 만드는 강렬함! 보색 관계일수록 대비가 강해요.</p>
+                        <p class="mt-2">보색 관계일수록 대비가 강해요.</p>
                     </div>
                     <div class="md:w-2/3 flex-grow">
                         <div class="grid grid-cols-2 gap-4">
@@ -130,16 +133,16 @@
                                    <div class="w-12 h-8 bg-red-500 rounded"></div>
                                 </div>
                                 <div class="p-4 h-20 rounded-lg bg-blue-600 flex items-center justify-center shadow-inner">
-                                   <div class="w-12 h-8 bg-orange-400 rounded"></div>
+                                   <div class="w-12 h-8 bg-amber-500 rounded"></div>
                                 </div>
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-center mb-2 text-red-700">대비가 작은 예시 (유사색)</p>
-                                <div class="p-4 h-20 rounded-lg bg-lime-300 flex items-center justify-center shadow-inner mb-2">
-                                   <div class="w-12 h-8 bg-yellow-300 rounded"></div>
+                                <div class="p-4 h-20 rounded-lg bg-green-600 flex items-center justify-center shadow-inner mb-2">
+                                   <div class="w-12 h-8 bg-lime-500 rounded"></div>
                                 </div>
-                                 <div class="p-4 h-20 rounded-lg bg-indigo-500 flex items-center justify-center shadow-inner">
-                                   <div class="w-12 h-8 bg-blue-500 rounded"></div>
+                                 <div class="p-4 h-20 rounded-lg bg-blue-600 flex items-center justify-center shadow-inner">
+                                   <div class="w-12 h-8 bg-violet-500 rounded"></div>
                                 </div>
                             </div>
                         </div>
@@ -152,11 +155,11 @@
                         <p class="mt-2">밝고 어두움으로 만드는 선명함! 명시성과 가독성에 가장 큰 영향을 줘요.</p>
                     </div>
                     <div class="md:w-2/3 flex-grow grid grid-cols-2 gap-4">
-                        <div class="p-4 rounded-lg bg-black flex items-center justify-center text-white font-bold text-2xl shadow-inner h-24">
-                           가나다
+                        <div class="p-4 rounded-lg bg-black flex items-center justify-center text-white font-bold text-xl shadow-inner h-20">
+                           배경과 글씨의 명도 차이가 커요.
                         </div>
-                        <div class="p-4 rounded-lg bg-gray-200 flex items-center justify-center text-gray-400 font-bold text-2xl shadow-inner h-24">
-                           가나다
+                        <div class="p-4 rounded-lg bg-gray-200 flex items-center justify-center text-gray-400 font-bold text-xl shadow-inner h-20">
+                           배경과 글씨의 명도 차이가 작아요.
                         </div>
                     </div>
                 </div>
@@ -170,13 +173,13 @@
                         <div>
                             <p class="text-sm font-bold text-center mb-2 text-green-700">대비가 큰 예시</p>
                             <div class="p-4 h-32 rounded-lg bg-gray-300 flex items-center justify-center shadow-inner">
-                               <div class="w-20 h-20 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">선명!</div>
+                               <div class="w-20 h-20 bg-rose-500 rounded-full flex items-center justify-center text-white font-bold">선명!</div>
                             </div>
                         </div>
                         <div>
                             <p class="text-sm font-bold text-center mb-2 text-red-700">대비가 작은 예시</p>
-                             <div class="p-4 h-32 rounded-lg bg-slate-300 flex items-center justify-center shadow-inner">
-                               <div class="w-20 h-20 bg-sky-200 rounded-full flex items-center justify-center text-sky-800 font-bold">흐릿..</div>
+                             <div class="p-4 h-32 rounded-lg bg-gray-300 flex items-center justify-center shadow-inner">
+                               <div class="w-20 h-20 bg-rose-500/30 rounded-full flex items-center justify-center text-sky-800 font-bold">흐릿..</div>
                             </div>
                         </div>
                     </div>
@@ -189,9 +192,9 @@
             <h2 class="text-3xl font-bold text-center mb-8">3. 주목성과 명시성</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- 주목성 Card -->
-                <div class="card text-center">
+                <div class="card text-left">
                     <h3 class="text-2xl font-bold mb-3">주목성 (Attraction)</h3>
-                    <p class="mb-6 card-content">"어? 저게 뭐지?" 하고 시선을 확 끄는 힘이에요. 주로 따뜻한 색, 높은 채도, 강한 대비를 사용해요.</p>
+                    <p class="mb-6 card-content">"어? 저게 뭐지?" 하고 시선을 확 끄는 힘이에요. 따뜻한 색, 높은 채도를 지닌 색은 그 자체로 사람들의 시선을 끌어요.</p>
                     <div class="flex justify-center space-x-4">
                         <div class="w-40 h-20 bg-red-600 rounded-lg flex items-center justify-center text-white text-3xl font-black shadow-lg transform -rotate-6">SALE</div>
                         <div class="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-black text-xl font-bold shadow-lg border-4 border-black">
@@ -200,26 +203,26 @@
                     </div>
                 </div>
                 <!-- 명시성 Card -->
-                <div class="card text-center">
+                <div class="card text-left">
                     <h3 class="text-2xl font-bold mb-3">명시성 (Legibility)</h3>
-                    <p class="mb-6 card-content">멀리서도, 어두워도 얼마나 잘 보이는지를 나타내요. <strong class="text-blue-600">명도 대비</strong>가 가장 중요하답니다!</p>
+                    <p class="mb-6 card-content">색이 조합되었을 때 멀리 떨어져 있거나 주변이 어둡더라도 잘 보이는 정도를 뜻해요. 명시성이 낮은 조합을 쓰면 글자를 한 눈에 알아보고 읽기가 어려워져요.</p>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <p class="text-sm font-bold mb-2 text-green-700">명시성이 높은 조합</p>
                             <div class="p-3 rounded-lg bg-white border border-gray-300 mb-2">
-                                <p class="text-black font-bold text-base md:text-lg">흰색 배경, 검은 글씨</p>
+                                <p class="text-black font-bold text-base md:text-lg">흰색과 검은색의 조합</p>
                             </div>
                             <div class="p-3 rounded-lg bg-black">
-                                <p class="text-yellow-300 font-bold text-base md:text-lg">검은 배경, 노란 글씨</p>
+                                <p class="text-yellow-300 font-bold text-base md:text-lg">검은색과 노란색의 조합</p>
                             </div>
                         </div>
                         <div>
                             <p class="text-sm font-bold mb-2 text-red-700">명시성이 낮은 조합</p>
                             <div class="p-3 rounded-lg bg-white border border-gray-300 mb-2">
-                                <p class="text-yellow-300 font-bold text-base md:text-lg">흰색 배경, 노란 글씨</p>
+                                <p class="text-yellow-300 font-bold text-base md:text-lg">흰색과 노란색의 조합</p>
                             </div>
-                            <div class="p-3 rounded-lg bg-blue-800">
-                                <p class="text-red-500 font-bold text-base md:text-lg">파란 배경, 빨간 글씨</p>
+                            <div class="p-3 rounded-lg bg-blue-600">
+                                <p class="text-red-600 font-bold text-base md:text-lg">파란색과 빨간색의 조합</p>
                             </div>
                         </div>
                     </div>
@@ -240,4 +243,3 @@
 
 </body>
 </html>
-�
