@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="styles.css">
-    <title></title>
+    <title>Colors</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            
         }
         .card {
             background-color: white;
@@ -29,7 +28,6 @@
             transition: transform 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
-            
         }
         .card:hover {
             transform: translateY(-5px);
@@ -44,29 +42,56 @@
             font-weight: 700;
             font-size: 0.875rem;
         }
+
+        /* --- Color Picker Styles --- */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 18px;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            transition: opacity .2s;
+        }
+
+        #hue-slider {
+            background: linear-gradient(to right, 
+                hsl(0, 100%, 50%), hsl(60, 100%, 50%), 
+                hsl(120, 100%, 50%), hsl(180, 100%, 50%), 
+                hsl(240, 100%, 50%), hsl(300, 100%, 50%), 
+                hsl(360, 100%, 50%)
+            );
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ffffff;
+            /* border: 2px solid #666666c2;*/
+            box-shadow: inset -1px 0px 1px rgba(134, 134, 134, 0.4), 0 2px 5px rgba(0, 0, 0, 0.4);
+            transition: background 0.2s;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header Section -->
-    <header class="text-center py-16 px-4 bg-white shadow-lg">
-        <h1 class="text-4xl md:text-6xl font-black mb-4">
+    <header class="text-center py-10 px-4 bg-white shadow-lg">
+        <h1 class="text-6xl font-black mb-2">
             <span class="gradient-text">Colors</span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-             <br>
-            색상, 명도, 채도와 이들이 가진 특성을 알아봅시다.
+        <p class="text-center text-gray-600 mx-2">             
+            색상, 명도, 채도와 색의 특성을 알아봅시다.
         </p>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-8 py-8 md:py-12 max-w-6xl">
 
-        <!-- Section 1: 색의 3요소 -->
         <section id="basics" class="my-12">
             <h2 class="text-3xl font-bold text-center mb-8">1. 색상, 명도, 채도 </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- 색상 Card -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-8">
                 <div class="card">
                     <h3 class="text-2xl font-bold mb-3">색상 (Hue)</h3>
                     <p class="mb-4 card-content">빨강, 파랑, 노랑과 같이 색을 구별하는 색 고유의 이름을 뜻합니다.</p>
@@ -78,29 +103,26 @@
                         <div class="w-10 h-10 rounded-full bg-fuchsia-500"></div>
                     </div>
                 </div>
-                <!-- 명도 Card -->
                 <div class="card">
-                    <h3 class="text-2xl font-bold mb-3">명도 (Value)</h3>
+                    <h3 class="text-2xl font-bold mb-3">명도 (Value/Luminosity)</h3>
                     <p class="mb-4 card-content">색의 '밝고 어두운' 정도를 뜻합니다. 밝을수록 명도가 높다고 하고, 어두울수록 명도가 낮다고 해요.</p>
                     <div class="flex justify-between items-center p-4 bg-gray-100 rounded-lg">
-                        <span class="font-bold text-right">어두움</p>낮은 명도</span>
+                        <span class="font-bold text-right text-xs">어두움<br>낮은 명도</span>
                         <div class="flex space-x-1">
                             <div class="w-6 h-10 rounded bg-gray-900 shadow-md"></div>
                             <div class="w-6 h-10 rounded bg-gray-700 shadow-md"></div>
                             <div class="w-6 h-10 rounded bg-gray-500 shadow-md"></div>
                             <div class="w-6 h-10 rounded bg-gray-300 shadow-md"></div>
                             <div class="w-6 h-10 rounded bg-gray-100 shadow-md"></div>
-                            <div class="w-6 h-10 rounded bg-gray-50 shadow-md"></div>
                         </div>
-                         <span class="font-bold">밝음</p>높은 명도</span>
+                         <span class="font-bold text-xs">밝음<br>높은 명도</span>
                     </div>
                 </div>
-                <!-- 채도 Card -->
                 <div class="card">
                     <h3 class="text-2xl font-bold mb-3">채도 (Saturation)</h3>
                     <p class="mb-4 card-content">색의 '맑고 탁한' 정도예요. 맑고 선명할수록 채도가 높다고 해요. 반대로 채도가 낮으면 흐릿하고 탁해져요.</p>
                     <div class="flex justify-between items-center p-4 bg-gray-100 rounded-lg">
-                        <span class="font-bold text-right">탁함</p>낮은 채도</span>
+                        <span class="font-bold text-right text-xs">탁함<br>낮은 채도</span>
                         <div class="flex space-x-1">
                             <div class="w-6 h-10 rounded shadow-md" style="background-color: #cebaba;"></div>
                             <div class="w-6 h-10 rounded shadow-md" style="background-color: #d1a0a0;"></div>
@@ -109,17 +131,38 @@
                             <div class="w-6 h-10 rounded shadow-md" style="background-color: #f22e2e;"></div>
                             <div class="w-6 h-10 rounded shadow-md" style="background-color: #ff0000;"></div>
                         </div>
-                        <span class="font-bold">맑음</p>높은 채도</span>
+                        <span class="font-bold text-xs">맑음<br>높은 채도</span>
                     </div>
                 </div>
+                </div>
+                <div class="card md:row-span-1">
+                    <h3 class="text-2xl font-bold mb-3">색 직접 만들어보기</h3>
+                    <p class="mb-8 card-content">슬라이더를 움직여 색상, 채도, 명도를 직접 조절해보세요.</p>
+                    <div class="flex flex-col items-center gap-2 mb-4">
+                        <div id="color-swatch" class="w-24 h-24 border-0 border-gray-200 rounded-lg shadow-md"></div>
+                        <div id="hex-value" class="font-mono text-sm text-zinc-100 bg-white px-2 py-2 rounded-lg">#FF0000</div> 
+                    </div>
+                    <div class="flex flex-col gap-5 mb-4">
+                        <div class="flex flex-col gap-2">
+                            <label for="hue-slider" class="text-sm font-bold text-gray-600">색상 (Hue)</label>
+                            <input type="range" id="hue-slider" min="0" max="360" value="0">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="saturation-slider" class="text-sm font-bold text-gray-600">채도 (Saturation)</label>
+                            <input type="range" id="saturation-slider" min="0" max="100" value="100">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="luminosity-slider" class="text-sm font-bold text-gray-600">명도 (Luminosity)</label>
+                            <input type="range" id="luminosity-slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </div>                
             </div>
         </section>
 
-        <!-- Section 2: 대비 -->
         <section id="contrast" class="my-16">
             <h2 class="text-3xl font-bold text-center mb-8">2. 색에 의한 대비</h2>
             <div class="space-y-8">
-                <!-- 색상 대비 -->
                 <div class="card md:flex-row items-center">
                     <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
                         <span class="tag bg-red-100 text-red-800">색상 대비</span>
@@ -148,26 +191,24 @@
                         </div>
                     </div>
                 </div>
-                <!-- 명도 대비 -->
                 <div class="card md:flex-row items-center">
-                     <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
+                       <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
                         <span class="tag bg-blue-100 text-blue-800">명도 대비</span>
-                        <p class="mt-2">밝고 어두움으로 만드는 선명함! 명시성과 가독성에 가장 큰 영향을 줘요.</p>
+                        <p class="mt-2">밝고 어두움으로 선명한 정도를 조절할 수 있어요. 명시성과 가독성에 가장 큰 영향을 줘요.</p>
                     </div>
                     <div class="md:w-2/3 flex-grow grid grid-cols-2 gap-4">
                         <div class="p-4 rounded-lg bg-black flex items-center justify-center text-white font-bold text-xl shadow-inner h-20">
-                           배경과 글씨의 명도 차이가 커요.
+                            배경과 글씨의 명도 차이가 커요.
                         </div>
                         <div class="p-4 rounded-lg bg-gray-200 flex items-center justify-center text-gray-400 font-bold text-xl shadow-inner h-20">
-                           배경과 글씨의 명도 차이가 작아요.
+                            배경과 글씨의 명도 차이가 작아요.
                         </div>
                     </div>
                 </div>
-                <!-- 채도 대비 -->
-                 <div class="card md:flex-row items-center">
-                     <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
+                <div class="card md:flex-row items-center">
+                       <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0 md:pr-8">
                         <span class="tag bg-indigo-100 text-indigo-800">채도 대비</span>
-                        <p class="mt-2">선명한 색을 더욱 돋보이게! 탁한 색과 함께 있을 때 효과가 커져요.</p>
+                        <p class="mt-2">채도가 낮은 색에 채도가 높은 색이 놓이면 채도가 높은 색이 더 돋보이게 됩니다.</p>
                     </div>
                     <div class="md:w-2/3 flex-grow grid grid-cols-2 gap-4">
                         <div>
@@ -187,14 +228,12 @@
             </div>
         </section>
 
-        <!-- Section 3: 주목성과 명시성 -->
         <section id="superpowers" class="my-16">
             <h2 class="text-3xl font-bold text-center mb-8">3. 주목성과 명시성</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- 주목성 Card -->
                 <div class="card text-left">
                     <h3 class="text-2xl font-bold mb-3">주목성 (Attraction)</h3>
-                    <p class="mb-6 card-content">"어? 저게 뭐지?" 하고 시선을 확 끄는 힘이에요. 따뜻한 색, 높은 채도를 지닌 색은 그 자체로 사람들의 시선을 끌어요.</p>
+                    <p class="mb-6 card-content">"어? 저게 뭐지?" 하고 시선을 이끄는 힘이에요. 따뜻한 색이나 높은 채도를 지닌 색은 상대적으로 확장 혹은 돌출되어 보이는 효과가 있고 사람들의 시선을 끌어요.</p>
                     <div class="flex justify-center space-x-4">
                         <div class="w-40 h-20 bg-red-600 rounded-lg flex items-center justify-center text-white text-3xl font-black shadow-lg transform -rotate-6">SALE</div>
                         <div class="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-black text-xl font-bold shadow-lg border-4 border-black">
@@ -202,27 +241,26 @@
                         </div>
                     </div>
                 </div>
-                <!-- 명시성 Card -->
                 <div class="card text-left">
                     <h3 class="text-2xl font-bold mb-3">명시성 (Legibility)</h3>
                     <p class="mb-6 card-content">색이 조합되었을 때 멀리 떨어져 있거나 주변이 어둡더라도 잘 보이는 정도를 뜻해요. 명시성이 낮은 조합을 쓰면 글자를 한 눈에 알아보고 읽기가 어려워져요.</p>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <p class="text-sm font-bold mb-2 text-green-700">명시성이 높은 조합</p>
+                            <p class="text-center text-sm font-bold mb-2 text-green-700">명시성이 높은 조합</p>
                             <div class="p-3 rounded-lg bg-white border border-gray-300 mb-2">
-                                <p class="text-black font-bold text-base md:text-lg">흰색과 검은색의 조합</p>
+                                <p class="text-center text-black font-bold text-base md:text-lg">흰색과 검은색의 조합</p>
                             </div>
                             <div class="p-3 rounded-lg bg-black">
-                                <p class="text-yellow-300 font-bold text-base md:text-lg">검은색과 노란색의 조합</p>
+                                <p class="text-center text-yellow-300 font-bold text-base md:text-lg">검은색과 노란색의 조합</p>
                             </div>
                         </div>
                         <div>
-                            <p class="text-sm font-bold mb-2 text-red-700">명시성이 낮은 조합</p>
+                            <p class="text-center text-sm font-bold mb-2 text-red-700">명시성이 낮은 조합</p>
                             <div class="p-3 rounded-lg bg-white border border-gray-300 mb-2">
-                                <p class="text-yellow-300 font-bold text-base md:text-lg">흰색과 노란색의 조합</p>
+                                <p class="text-center text-yellow-300 font-bold text-base md:text-lg">흰색과 노란색의 조합</p>
                             </div>
                             <div class="p-3 rounded-lg bg-blue-600">
-                                <p class="text-red-600 font-bold text-base md:text-lg">파란색과 빨간색의 조합</p>
+                                <p class="text-center text-red-600 font-bold text-base md:text-lg">파란색과 빨간색의 조합</p>
                             </div>
                         </div>
                     </div>
@@ -232,7 +270,6 @@
 
     </main>
     
-    <!-- Footer Section -->
     <footer class="text-center py-12 px-4 bg-gray-800 text-white mt-12">
         <h2 class="text-2xl font-bold mb-3"></h2>
         <p class="text-gray-300 max-w-2xl mx-auto">
@@ -241,5 +278,78 @@
         </p>
     </footer>
 
+    <script>
+        const hueSlider = document.getElementById('hue-slider');
+        const saturationSlider = document.getElementById('saturation-slider');
+        const luminositySlider = document.getElementById('luminosity-slider');
+        const colorSwatch = document.getElementById('color-swatch');
+        const hexValue = document.getElementById('hex-value');
+    
+        // HSL(색상, 채도, 명도)을 RGB로 변환하는 함수
+        function hslToRgb(h, s, l) {
+            h /= 360;
+            s /= 100;
+            l /= 100;
+            let r, g, b;
+    
+            if (s === 0) {
+                r = g = b = l; // 회색
+            } else {
+                const hue2rgb = (p, q, t) => {
+                    if (t < 0) t += 1;
+                    if (t > 1) t -= 1;
+                    if (t < 1/6) return p + (q - p) * 6 * t;
+                    if (t < 1/2) return q;
+                    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                };
+    
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+                r = hue2rgb(p, q, h + 1/3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1/3);
+            }
+            return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+        }
+    
+        // RGB를 Hex 코드로 변환하는 함수
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+        }
+    
+        // 슬라이더 값에 따라 색상을 업데이트하는 함수
+        function updateColor() {
+            const hue = hueSlider.value;
+            const saturation = saturationSlider.value;
+            const luminosity = luminositySlider.value;
+    
+            // 최종 색상 계산 및 적용
+            const rgb = hslToRgb(hue, saturation, luminosity);
+            const hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
+            colorSwatch.style.backgroundColor = hex;
+            hexValue.textContent = hex;
+    
+            // 채도와 명도 슬라이더의 배경 동적 변경
+            updateSliderBackgrounds(hue, saturation, luminosity);
+        }
+    
+        // 슬라이더 배경을 현재 색상에 맞게 업데이트
+        function updateSliderBackgrounds(h, s, l) {
+            // 채도 슬라이더 배경: 회색(채도 0)에서 현재 색상(채도 100)까지
+            saturationSlider.style.backgroundImage = `linear-gradient(to right, hsl(${h}, 0%, ${l}%), hsl(${h}, 100%, ${l}%))`;
+            
+            // 명도 슬라이더 배경: 검정(명도 0)에서 현재 색상(명도 50), 그리고 흰색(명도 100)까지
+            luminositySlider.style.backgroundImage = `linear-gradient(to right, hsl(${h}, ${s}%, 0%), hsl(${h}, ${s}%, 50%), hsl(${h}, ${s}%, 100%))`;
+        }
+    
+        // 슬라이더에 이벤트 리스너 추가
+        hueSlider.addEventListener('input', updateColor);
+        saturationSlider.addEventListener('input', updateColor);
+        luminositySlider.addEventListener('input', updateColor);
+    
+        // 페이지 로드 시 초기 색상 설정
+        updateColor();
+    </script>
 </body>
 </html>
