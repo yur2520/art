@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>물감으로 색 만들기</title>
+    <script src="https://scrtwpns.com/mixbox.js"></script>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --bg-body: #e4e4e7;
+            /* zinc-200 */
+            --bg-card-glass: rgba(255, 255, 255, 0.5);
+            /* 글래스모피즘 카드 배경 */
+            --border-card-glass: rgba(255, 255, 255, 0.4);
+            --shadow-card-glass: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'SUITE Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg-body);
+            padding: 40px 20px;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-card {
+            background: var(--bg-card-glass);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 var(--shadow-card-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-card-glass);
+            width: 100%;
+            max-width: 680px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .description {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .palette-container {
+            margin-top: 30px;
+        }
+
+        .palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 460px;
+            margin: 20px auto 0;
+        }
+
+        .color-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .color-box:hover {
+            transform: scale(1.08);
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: var(--border-card-glass);
+            margin: 40px auto;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        .ratio-display {
+            display: flex;
+            align-items: center;
+            min-width: 100px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .ratio-text {
+            padding: 0;
+            text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4), 0px 0px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 10px;
+            background: #ddd;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 26px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #ddddddbd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .mixing-result-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 36px;
+        }
+
+        .color-indicator {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .operator {
+            font-size: 24px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .mixer-container {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #3b5672;
+            /* 원하는 링크 색상으로 변경 */
+            text-decoration: none;
+            /* 밑줄을 없애고 싶다면 추가 */
+            /* 아이콘과 텍스트를 정렬하기 위해 flexbox 사용 */
+            display: inline-flex;
+            align-items: center;
+            /* 수직 중앙 정렬 */
+        }
+
+        footer a:hover {
+            color: #29629e;
+            /* 마우스 오버 시 색상 변경 */
+            text-decoration: underline;
+            /* 마우스 오버 시 밑줄 추가 */
+        }
+
+        .external-link-icon {           
+            opacity: 0.4; 
+            width: 10px;
+            /* 아이콘의 너비 */
+            height: 10px;
+            /* 아이콘의 높이 */
+            margin-left: 2px;
+            /* 텍스트와의 간격 */
+            vertical-align: middle;
+            /* 텍스트와 수직 정렬 (display: flex를 사용하면 align-items로 충분하지만, 안전을 위해 추가) */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-card">
+        <h1>물감 섞어 새로운 색 만들기</h1>
+        <p class="description">서로 다른 두 색을 합쳐 새로운 색을 만드는 것을 조색이라고 합니다. <br> 팔레트에서 색을 선택한 후 섞는 양을 조절하며 어떤 색이 만들어지는지 살펴봅시다.
+        </p>
+        <br>
+
+        <div class="palette-container">
+            <div class="palette" id="colorPalette"></div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="mixer-container">
+            <div class="mixing-result-area">
+                <div class="color-indicator" id="selectedColor1"></div>
+                <span class="operator">+</span>
+                <div class="color-indicator" id="selectedColor2"></div>
+                <span class="operator">=</span>
+                <div class="color-indicator" id="resultColor" style="width: 80px; height: 80px;"></div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="ratio-display" id="ratio1"></div>
+                <input type="range" id="mixSlider" min="0" max="10" value="5" step="1">
+                <div class="ratio-display" id="ratio2"></div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+
+        <footer>
+            본 페이지는 <a href="https://scrtwpns.com/mixbox/docs" target="_blank" rel="noopener noreferrer">Mixbox 라이브러리<img
+                    src="icon_new.svg" alt="새 창 열기" class="external-link-icon"></a> 를 사용하여 비영리적 교육 목적으로 제작되었습니다.<br>원저작자의
+            방침에 따라 영리적인 목적의 사용을 금지합니다.<br>Copyright (c) 2022, Secret Weapons. All rights reserved.<br>
+            Mixbox is provided under the CC BY-NC 4.0 license for non-commercial use only.
+        </footer>
+    </div>
+
+    <script>
+        const colors = [
+            { name: '빨강', rgb: 'rgb(237, 28, 36)' }, { name: '주황', rgb: 'rgb(255, 127, 39)' },
+            { name: '노랑', rgb: 'rgb(255, 242, 0)' }, { name: '연두', rgb: 'rgb(181, 230, 29)' },
+            { name: '초록', rgb: 'rgb(34, 177, 76)' }, { name: '하늘', rgb: 'rgb(0, 162, 232)' },
+            { name: '파랑', rgb: 'rgb(63, 72, 204)' }, { name: '보라', rgb: 'rgb(163, 73, 164)' },
+            { name: '황토', rgb: 'rgb(185, 122, 87)' }, { name: '갈색', rgb: 'rgb(136, 0, 21)' },
+            { name: '하양', rgb: 'rgb(255, 255, 255)' }, { name: '검정', rgb: 'rgb(0, 0, 0)' }
+        ];
+
+        let selectedColor1Data = colors[0];
+        let selectedColor2Data = colors[2];
+        let selectionStage = 1;
+        let selectedElement1 = null;
+        let selectedElement2 = null;
+
+        const palette = document.getElementById('colorPalette');
+        const slider = document.getElementById('mixSlider');
+        const selectedColor1Div = document.getElementById('selectedColor1');
+        const selectedColor2Div = document.getElementById('selectedColor2');
+        const resultColorDiv = document.getElementById('resultColor');
+        const ratioContainer1 = document.getElementById('ratio1');
+        const ratioContainer2 = document.getElementById('ratio2');
+
+        ratioContainer1.style.justifyContent = 'flex-end';
+        ratioContainer2.style.justifyContent = 'flex-start';
+
+        function getRgbValues(rgbString) {
+            if (!rgbString || typeof rgbString !== 'string') return [0, 0, 0];
+            const matches = rgbString.match(/(\d+(\.\d+)?)/g);
+            return matches ? matches.slice(0, 3).map(Number) : [0, 0, 0];
+        }
+
+        function adjustRgbBrightness(rgbString, percent) {
+            if (!rgbString) return 'rgb(0,0,0)';
+            const [r, g, b] = getRgbValues(rgbString);
+            const amount = Math.floor(255 * (percent / 100));
+            const clamp = (val) => Math.max(0, Math.min(255, val));
+            return `rgb(${clamp(r + amount)}, ${clamp(g + amount)}, ${clamp(b + amount)})`;
+        }
+
+        function applyShadowStyle(element, rgb, type) {
+            if (!element || !rgb) return;
+            const dark = adjustRgbBrightness(rgb, -35);
+            const light = adjustRgbBrightness(rgb, 20);
+            let shadow = '';
+
+            switch (type) {
+                case 'default': shadow = `3px 3px 6px ${dark}`; break;
+                case 'inset': shadow = `inset 3px 3px 3px ${dark}, inset -3px -3px 3px ${light}`; break;
+                case 'outset': shadow = `4px 4px 10px ${dark}`; break;
+            }
+            element.style.boxShadow = shadow;
+        }
+
+        function initializeApp() {
+            colors.forEach((color) => {
+                const el = document.createElement('div');
+                el.className = 'color-box';
+                el.style.backgroundColor = color.rgb;
+                el.title = color.name;
+                el.dataset.rgb = color.rgb;
+                el.dataset.name = color.name;
+                applyShadowStyle(el, color.rgb, 'default');
+                el.addEventListener('click', () => selectColor(el, color));
+                palette.appendChild(el);
+            });
+
+            selectedElement1 = palette.children[0];
+            selectedElement2 = palette.children[2];
+
+            slider.addEventListener('input', updateMix);
+            updateMix();
+        }
+
+        function selectColor(element, colorData) {
+            if (selectionStage === 1) {
+                if (element === selectedElement2) return;
+                if (selectedElement1) {
+                    applyShadowStyle(selectedElement1, selectedColor1Data.rgb, 'default');
+                    selectedElement1.style.transform = '';
+                }
+                selectedElement1 = element;
+                selectedColor1Data = colorData;
+                selectionStage = 2;
+            } else {
+                if (element === selectedElement1) return;
+                if (selectedElement2) {
+                    applyShadowStyle(selectedElement2, selectedColor2Data.rgb, 'default');
+                    selectedElement2.style.transform = '';
+                }
+                selectedElement2 = element;
+                selectedColor2Data = colorData;
+                selectionStage = 1;
+            }
+            updateMix();
+        }
+
+        function updateMix() {
+            if (selectedElement1) {
+                applyShadowStyle(selectedElement1, selectedColor1Data.rgb, 'inset');
+                selectedElement1.style.transform = 'scale(0.95)';
+            }
+            if (selectedElement2) {
+                applyShadowStyle(selectedElement2, selectedColor2Data.rgb, 'inset');
+                selectedElement2.style.transform = 'scale(0.95)';
+            }
+
+            const t = slider.value / slider.max;
+            const mixedColor = mixbox.lerp(selectedColor1Data.rgb, selectedColor2Data.rgb, t);
+            const mixedRgbString = mixedColor.toString();
+
+            selectedColor1Div.style.backgroundColor = selectedColor1Data.rgb;
+            selectedColor2Div.style.backgroundColor = selectedColor2Data.rgb;
+            resultColorDiv.style.backgroundColor = mixedRgbString;
+
+            slider.style.background = `linear-gradient(90deg, ${selectedColor1Data.rgb} 0%, ${selectedColor2Data.rgb} 100%)`;
+
+            applyShadowStyle(selectedColor1Div, selectedColor1Data.rgb, 'outset');
+            applyShadowStyle(selectedColor2Div, selectedColor2Data.rgb, 'outset');
+            applyShadowStyle(resultColorDiv, mixedRgbString, 'outset');
+
+            updateRatio();
+        }
+
+        function updateRatio() {
+            const max = parseInt(slider.max);
+            const val = parseInt(slider.value);
+            let r1 = max - val;
+            let r2 = val;
+
+            const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+            if (r1 !== 0 || r2 !== 0) {
+                const commonDivisor = gcd(r1, r2);
+                r1 /= commonDivisor;
+                r2 /= commonDivisor;
+            }
+
+            ratioContainer1.innerHTML = '';
+            ratioContainer2.innerHTML = '';
+
+            // Left side (Color 1)
+            const number1 = document.createElement('span');
+            number1.className = 'ratio-text';
+            number1.textContent = r1;
+            number1.style.color = '#333';
+
+            if (r1 > 0) {
+                if (r1 > 5) {
+                    // r1이 5를 초과할 경우
+                    const circlesContainer = document.createElement('div');
+                    circlesContainer.className = 'ratio-circles';
+
+                    const line1 = document.createElement('span');
+                    line1.className = 'ratio-text';
+                    line1.textContent = '●'.repeat(5);
+                    line1.style.color = selectedColor1Data.rgb;
+
+                    const line2 = document.createElement('span');
+                    line2.className = 'ratio-text';
+                    line2.textContent = '●'.repeat(r1 - 5);
+                    line2.style.color = selectedColor1Data.rgb;
+
+                    circlesContainer.appendChild(line1);
+                    circlesContainer.appendChild(document.createElement('br')); // 줄바꿈
+                    circlesContainer.appendChild(line2);
+
+                    number1.style.marginLeft = '8px';
+                    ratioContainer1.appendChild(circlesContainer);
+                    ratioContainer1.appendChild(number1);
+                } else {
+                    // r1이 5 이하일 경우
+                    const circles1 = document.createElement('span');
+                    circles1.className = 'ratio-text';
+                    circles1.textContent = '●'.repeat(r1);
+                    circles1.style.color = selectedColor1Data.rgb;
+
+                    number1.style.marginLeft = '8px';
+                    ratioContainer1.appendChild(circles1);
+                    ratioContainer1.appendChild(number1);
+                }
+            } else {
+                ratioContainer1.appendChild(number1);
+            }
+            // Right side (Color 2)
+            const number2 = document.createElement('span');
+            number2.className = 'ratio-text';
+            number2.textContent = r2;
+            number2.style.color = '#333';
+
+            if (r2 > 0) {
+                if (r2 > 5) {
+                    // r2가 5를 초과할 경우
+                    const circlesContainer = document.createElement('div');
+                    circlesContainer.className = 'ratio-circles';
+
+                    const line1 = document.createElement('span');
+                    line1.className = 'ratio-text';
+                    line1.textContent = '●'.repeat(5);
+                    line1.style.color = selectedColor2Data.rgb;
+
+                    const line2 = document.createElement('span');
+                    line2.className = 'ratio-text';
+                    line2.textContent = '●'.repeat(r2 - 5);
+                    line2.style.color = selectedColor2Data.rgb;
+
+                    circlesContainer.appendChild(line1);
+                    circlesContainer.appendChild(document.createElement('br')); // 줄바꿈
+                    circlesContainer.appendChild(line2);
+
+                    number2.style.marginRight = '8px';
+                    ratioContainer2.appendChild(number2);
+                    ratioContainer2.appendChild(circlesContainer);
+                } else {
+                    // r2가 5 이하일 경우
+                    const circles2 = document.createElement('span');
+                    circles2.className = 'ratio-text';
+                    circles2.textContent = '●'.repeat(r2);
+                    circles2.style.color = selectedColor2Data.rgb;
+
+                    number2.style.marginRight = '8px';
+                    ratioContainer2.appendChild(number2);
+                    ratioContainer2.appendChild(circles2);
+                }
+            } else {
+                ratioContainer2.appendChild(number2);
+            }
+        }
+
+        window.onload = function () {
+            initializeApp();
+        };
+    </script>
+</body>
+
+</html>
