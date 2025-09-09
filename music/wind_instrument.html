@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목관악기와 금관악기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .tab-active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 700;
+            background-color: #eff6ff;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">목관악기와 금관악기</h1>
+            <p class="mt-2 text-lg text-gray-600">다채로운 관악기의 세계를 만나보세요.</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="mb-8 flex justify-center border-b border-gray-200">
+            <button id="woodwind-tab" class="tab-btn tab-active text-lg px-6 py-3 border-b-2 border-transparent transition" onclick="showTab('woodwind')">목관악기</button>
+            <button id="brass-tab" class="tab-btn text-lg px-6 py-3 border-b-2 border-transparent transition" onclick="showTab('brass')">금관악기</button>
+        </div>
+
+        <!-- Woodwind Instruments Content -->
+        <div id="woodwind" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 피콜로 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">피콜로 (Piccolo)</h2>
+                        <p class="text-gray-700 mb-4">목관악기 중 가장 높은 음역대를 내는 악기입니다. 작고 높은 소리가 특징이며, 오케스트라에서 화려함을 더합니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/PyvDKGRxubQ?si=ZqCo-kbi7P53LhWT" title="피콜로 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- 플루트 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">플루트 (Flute)</h2>
+                        <p class="text-gray-700 mb-4">맑고 투명한 소리를 내는 목관악기입니다. 입술로 바람을 불어넣어 소리를 내며, 선율적인 멜로디 연주에 탁월합니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                             <iframe class="w-full h-full" src="https://www.youtube.com/embed/-hH8KE6-1pU" title="플루트 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- 오보에 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">오보에 (Oboe)</h2>
+                        <p class="text-gray-700 mb-4">두 개의 리드를 겹쳐 사용하는 '겹리드' 악기로, 독특하고 감성적인 음색으로 오케스트라의 기준 음을 잡습니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                             <iframe class="w-full h-full" src="https://www.youtube.com/embed/6e4bQO4tTYQ" title="오보에 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- 클라리넷 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">클라리넷 (Clarinet)</h2>
+                        <p class="text-gray-700 mb-4">하나의 리드를 사용하는 악기로, 넓은 음역대와 풍부한 표현력을 자랑하며 다양한 장르에서 활약합니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                           <iframe class="w-full h-full" src="https://www.youtube.com/embed/jX0SJrLXa2A?si=O2s-zkX2XoEhtZgL" title="클라리넷 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- 리코더 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">리코더 (Recorder)</h2>
+                        <p class="text-gray-700 mb-4">배우기 쉬워 교육용으로도 많이 사용되는 악기입니다. 부드럽고 따뜻한 소리가 나며, 바로크 시대에 크게 유행했습니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                           <iframe class="w-full h-full" src="https://www.youtube.com/embed/twohEIheHb0" title="리코더 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- 바순 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">바순 (Bassoon)</h2>
+                        <p class="text-gray-700 mb-4">낮은 음역대를 담당하는 목관악기로, '오케스트라의 광대'라는 별명을 가지고 있을 만큼 익살스러운 표현이 가능합니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                           <iframe class="w-full h-full" src="https://www.youtube.com/embed/4I2xT9Kq6jo?si=nu2pWxXsM_RXQYmm" title="바순 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        
+                        </div>
+                    </div>
+                </div>
+                <!-- 소금 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-2">소금 (Sogeum)</h2>
+                        <p class="text-gray-700 mb-4">전통 국악기 중 하나로, 대나무로 만들어진 가로로 부는 관악기입니다. 맑고 청아한 소리가 특징입니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg">
+                             <div class="flex items-center justify-center h-full text-gray-500">유튜브 영상을 삽입하세요</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brass Instruments Content -->
+        <div id="brass" class="tab-content" style="display: none;">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 트럼펫 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-amber-600 mb-2">트럼펫 (Trumpet)</h2>
+                        <p class="text-gray-700 mb-4">금관악기 중 가장 높은 음역대를 내며, 화려하고 힘찬 소리가 특징입니다. 팡파르나 주요 멜로디에 자주 사용됩니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                           <iframe class="w-full h-full" src="https://www.youtube.com/embed/zL_X3UvEPu4" title="트럼펫 연주" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- 호른 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-amber-600 mb-2">호른 (Horn)</h2>
+                        <p class="text-gray-700 mb-4">부드럽고 풍부한 음색을 가진 금관악기로, 둥글게 말린 관과 깔때기 모양의 벨이 특징입니다. 숲의 소리를 닮았습니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg">
+                             <div class="flex items-center justify-center h-full text-gray-500">유튜브 영상을 삽입하세요</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 트롬본 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-amber-600 mb-2">트롬본 (Trombone)</h2>
+                        <p class="text-gray-700 mb-4">슬라이드를 움직여 음정을 조절하는 독특한 방식의 금관악기입니다. 중후하고 화려한 소리를 냅니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg">
+                            <div class="flex items-center justify-center h-full text-gray-500">유튜브 영상을 삽입하세요</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 튜바 카드 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-amber-600 mb-2">튜바 (Tuba)</h2>
+                        <p class="text-gray-700 mb-4">금관악기 중에서 가장 크고 낮은 소리를 내며, 오케스트라의 저음을 든든하게 받쳐주는 역할을 합니다.</p>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg">
+                             <div class="flex items-center justify-center h-full text-gray-500">유튜브 영상을 삽입하세요</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // 모든 탭 컨텐츠를 숨김
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // 모든 탭 버튼의 활성 스타일을 제거
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('tab-active');
+            });
+            
+            // 선택된 탭 컨텐츠를 보여줌
+            document.getElementById(tabName).style.display = 'block';
+
+            // 선택된 탭 버튼에 활성 스타일을 추가
+            document.getElementById(tabName + '-tab').classList.add('tab-active');
+        }
+    </script>
+</body>
+</html>
+
