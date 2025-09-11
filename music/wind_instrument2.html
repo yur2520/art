@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="../styles.css">
     <title>목관악기와 금관악기</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
         }
         /* 활성 탭 스타일 */
         .tab-active {
-            border-color: #3b82f6; /* blue-500 */
-            color: #3b82f6;
+            border-color: #ffac12; /* blue-500 */
+            color: #ff9720;
             font-weight: 700;
-            background-color: #eff6ff; /* blue-50 */
+            background-color: #fff8ef; /* blue-50 */
         }
         /* 비활성 탭 스타일 */
         .tab-inactive {
             border-color: transparent;
-            color: #6b7280; /* gray-500 */
+            color: #80736b; /* gray-500 */
         }
         .card-grid {
             display: grid;
@@ -34,7 +36,7 @@
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
         <header class="text-center mb-8">
             <h1 class="text-4xl font-bold text-gray-900">목관악기와 금관악기</h1>
-            <p class="mt-2 text-lg text-gray-600">다양한 관악기의 소리와 매력을 알아보세요.</p>
+            <p class="mt-2 text-lg text-gray-600">다양한 관악기의 소리를 들어 보고, 느낌을 적어 봅시다.</p>
         </header>
 
         <!-- 탭 네비게이션 -->
@@ -63,7 +65,7 @@
                 </a>
                 <!-- 플루트 -->
                 <a href="https://youtu.be/-hH8KE6-1pU" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="Flute.jpg" alt="플루트">
+                    <img class="w-full h-48 object-cover" src="flute2.png" alt="플루트">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">플루트</h3>
                         <p class="text-gray-600">맑고 투명한 음색이 특징인 목관악기로, 입김을 불어넣어 소리를 냅니다.</p>
@@ -87,7 +89,7 @@
                 </a>
                 <!-- 리코더 -->
                 <a href="https://youtu.be/twohEIheHb0" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/c0d6e4/ffffff?text=Recorder" alt="리코더">
+                    <img class="w-full h-48 object-cover" src="https://img.apmcdn.org/17adf34b4ba45d3e3020387508c73308cd935abf/widescreen/4e2eae-20220330-recorders-600.jpg" alt="리코더">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">리코더</h3>
                         <p class="text-gray-600">오랜 역사를 가진 목관악기로, 교육용으로 널리 사용되며 맑은 소리를 냅니다.</p>
@@ -102,11 +104,19 @@
                     </div>
                 </a>
                 <!-- 소금 -->
-                <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/0lVLAlOE-WY" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="소금.png" alt="소금">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">소금</h3>
                         <p class="text-gray-600">한국 전통 관악기 중 하나로, 대금보다 작은 가로로 부는 악기이며 청아한 소리가 특징입니다.</p>
+                    </div>
+                </a>
+                <!-- 대금 -->
+                <a href="https://youtu.be/5EUsqDbUwO0" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <img class="w-full h-48 object-cover" src="대금.png" alt="대금">
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">대금</h3>
+                        <p class="text-gray-600">한국 전통악기 중 가로로 부는 대표적인 목관악기입니다.</p>
                     </div>
                 </a>
             </div>
@@ -115,31 +125,31 @@
             <div id="content-brass" class="hidden card-grid">
                  <!-- 트럼펫 -->
                 <a href="https://youtu.be/zL_X3UvEPu4" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/fcae1e/ffffff?text=Trumpet" alt="트럼펫">
+                    <img class="w-full h-48 object-cover" src="trumpet.png" alt="트럼펫">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">트럼펫</h3>
                         <p class="text-gray-600">금관악기 중 가장 높은 음역대를 가지며, 화려하고 밝은 소리로 널리 알려져 있습니다.</p>
                     </div>
                 </a>
                 <!-- 호른 -->
-                <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/f8b42b/ffffff?text=Horn" alt="호른">
+                <a href="https://youtu.be/-A3cCQeV44M" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <img class="w-full h-48 object-cover" src="horn.png" alt="호른">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">호른</h3>
                         <p class="text-gray-600">달팽이 모양의 관을 가진 악기로, 부드럽고 풍부한 음색으로 오케스트라 사운드를 감쌉니다.</p>
                     </div>
                 </a>
                 <!-- 트롬본 -->
-                <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/f6be40/ffffff?text=Trombone" alt="트롬본">
+                <a href="https://youtu.be/e3tOjQPcJ-I" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <img class="w-full h-48 object-cover" src="trombone.png" alt="트롬본">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">트롬본</h3>
                         <p class="text-gray-600">슬라이드를 움직여 음정을 조절하며, 힘차고 장엄한 소리부터 부드러운 소리까지 다양하게 표현합니다.</p>
                     </div>
                 </a>
                 <!-- 튜바 -->
-                <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/f4c852/ffffff?text=Tuba" alt="튜바">
+                <a href="https://youtu.be/XunS69N9Oug" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <img class="w-full h-48 object-cover" src="tuba.png" alt="튜바">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">튜바</h3>
                         <p class="text-gray-600">금관악기 중 가장 낮은 소리를 내는 악기로, 웅장하고 깊은 음색으로 전체 합주를 받쳐줍니다.</p>

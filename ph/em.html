@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상황별 응급처치 안내</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply custom font to the body */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-10 md:mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">상황별 응급처치 안내</h1>
+            <p class="mt-3 text-md md:text-lg text-gray-600"> </p>
+        </header>
+
+        <!-- Grid for First Aid Cards -->
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1: 출혈 (Bleeding) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">출혈</h2>
+                </div>
+                <p class="text-gray-600 mb-4">피부에 난 상처에서 피가 나는 상태입니다.</p>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <h3 class="font-semibold text-lg mb-2 text-gray-700">대처 방법</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                        <li>흐르는 물에 상처를 깨끗이 씻어냅니다.</li>
+                        <li>깨끗한 거즈로 상처 부위를 직접 압박합니다.</li>
+                        <li>피가 멈추면 붕대로 감싸줍니다.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Card 2: 염좌 (Sprain) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">염좌</h2>
+                </div>
+                <p class="text-gray-600 mb-4">인대나 근육이 늘어나거나 찢어진 상태입니다.</p>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <h3 class="font-semibold text-lg mb-2 text-gray-700">대처 방법</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                        <li>차가운 물수건이나 얼음 주머니를 대줍니다.</li>
+                        <li>염좌 부위를 심장보다 높게 올려줍니다.</li>
+                        <li>충분한 휴식을 취하고 무리하지 않습니다.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Card 3: 탈구/골절 (Dislocation/Fracture) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">탈구 & 골절</h2>
+                </div>
+                <p class="text-gray-600 mb-4">뼈가 관절에서 빠지거나 부러진 상태입니다.</p>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <h3 class="font-semibold text-lg mb-2 text-gray-700">대처 방법</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                        <li>다친 상태 그대로 움직이지 않도록 고정합니다.</li>
+                        <li>절대로 스스로 맞추려고 시도하지 않습니다.</li>
+                        <li>즉시 주위 어른이나 119에 도움을 요청합니다.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Card 4: 쇼크 (Shock) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">쇼크</h2>
+                </div>
+                <p class="text-gray-600 mb-4">놀라서 어지럽거나 불안하고, 체온이 떨어지는 상태입니다.</p>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <h3 class="font-semibold text-lg mb-2 text-gray-700">대처 방법</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                        <li>편한 자세로 눕히고 다리를 심장보다 높게 올려줍니다.</li>
+                        <li>옷이나 담요 등으로 몸을 덮어 체온을 유지시킵니다.</li>
+                        <li>의식이 없다면 옆으로 눕혀 기도를 확보합니다.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Card 5: 심정지 (Cardiac Arrest) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">심정지</h2>
+                </div>
+                <p class="text-gray-600 mb-4">심장의 활동이 갑자기 멈춘 상태입니다.</p>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <h3 class="font-semibold text-lg mb-2 text-gray-700">대처 방법</h3>
+                     <p class="text-gray-600">
+                        즉시 119에 신고하고, 심폐소생술(CPR)과 자동심장충격기(AED) 사용법을 아는 경우 즉시 시행해야 합니다. 
+                        정확한 방법은 전문적인 교육이 필요합니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Placeholder card for spacing -->
+             <div class="hidden lg:block"></div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
+
