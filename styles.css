@@ -27,6 +27,14 @@
             font-weight: 700;
         }
 
+        .h1-pink {            
+            color: var(--primary-pink);
+            margin-top: 0; 
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
         .card-df h1 {
             color: #7ebad9;
             margin-top: 0; 

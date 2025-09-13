@@ -33,7 +33,7 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 1.5rem;
         }
 
@@ -51,9 +51,11 @@
 <body class="bg-gray-50 text-gray-800">
 
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-900">목관악기와 금관악기</h1>
-            <p class="mt-2 text-lg text-gray-600">다양한 관악기의 소리를 들어 보고, 느낌을 적어 봅시다.</p>
+        <header class="text-center mb-8 mx-4">
+            <h1 class="text-4xl font-bold text-gray-900 mb-8">목관악기와 금관악기</h1>
+            <p class="mt-2 text-gray-600 text-justify">과거 공기를 불어넣어 소리를 내거나 식물의 조각을 떨리게 하여 소리를 내는 악기는 전통적으로 나무로 만들어진 경우가 많았습니다. 반면 입술을 진동시켜 소리를 내는 악기는 황동으로 만들어지는 경우가 많았기에 각각 나무와 금속을 뜻하는 한자를 사용하여 목관악기와 금관악기라는 이름으로 분류했지요. (영어로도 woodwind, brass라고 하여 나무와 황동을 가리키는 단어를 사용합니다.)</p>  
+            <p class="mt-2 text-gray-600 text-justify">하지만 사람들은 점차 다양한 재료를 사용하여 악기를 만들었고, 악기의 재질과 모습도 달라졌습니다. 그래서 오늘날 관악기의 분류는 만들어진 재료보다 소리를 내는 방법(리드 혹은 입술 진동)에 따라 이루어지고 있지요. </p>
+            <p class="mt-2 text-gray-600 text-justify">다양한 관악기의 소리를 들어 보고, 각 악기의 음색이 주는 느낌을 비교하여 봅시다.</p>
         </header>
 
         <!-- 탭 네비게이션 -->
@@ -83,13 +85,13 @@
                         <p class="text-gray-600">피콜로 혹은 피콜로 플루트라고 불립니다. 플루트보다 한 옥타브 높은 소리를 내는 악기로, 오케스트라에서 가장 높은 음역대를
                             담당합니다. 30cm를 조금 넘는 크기를 가지고 있는데, 이는 플루트의 절반 정도 크기입니다. 여리게 연주하여 섬세하고 감미로운 소리를 내기도 하고, 강하게 연주하여
                             날카롭고 강렬한 소리를 내기도 합니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/academy/piccolo/jb_souvenir_de_reveillon.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
                         </audio>
                         <div class="text-sm text-gray-400 mx-2">Jacques Offenbach, Souvenir de Reveillon</div>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source
                                 src="https://cdn2.vsl.co.at/audios/academy/piccolo/bk_defesch_sonata_in_g_pfl_vi_06.mp3"
                                 type="audio/mpeg">
@@ -101,20 +103,20 @@
                 <!-- 플루트 -->
                 <a href="https://youtu.be/-hH8KE6-1pU"
                     class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="flute2.png" alt="플루트">
+                    <img class="w-full h-48 object-cover" src="flute.png" alt="플루트">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">플루트</h3>
                         <p class="text-gray-600">플루트 혹은 콘서트 플루트라고 불립니다. 대략 67cm 내외의 크기를 가지고 있습니다. </p>
                         <p class="text-gray-600">과거에는 나무로 만들었으나 1830년대
                             낭만주의 시대에 이르러 악기를 개량하려는 시도가 나타났고, 이 때 만들어진 플루트의 모습이 오늘날 현대 플루트의 기초가 되었습니다. 맑고 투명한 음색이 특징인
                             목관악기로, 입김을 불어넣어 소리를 냅니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/flute_virtuos.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
                         </audio>
                         <div class="text-sm text-gray-400 mx-3">Christian Kardeis, Flute virtuoso</div>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/academy/flute/gb_spring.mp3" type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
                         </audio>
@@ -131,7 +133,7 @@
                             악기입니다. 리드 부분을 합쳐 약 70cm 내외의 크기를 가집니다. 독특하고 애수 띤 음색을 가집니다.</p>
                         <p class="text-gray-600">대중문화에서는 영화 '미션(The Mission)'에서 "Gabriel's Oboe"라는 곡을 연주하는 장면을 통해 널리
                             알려지기도 했습니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/britten_pan.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
@@ -148,7 +150,7 @@
                         <p class="text-gray-600">오보에와는 달리 하나의 리드를 사용하는 홑리드 악기입니다. 전체 길이는 오보에와 비슷합니다. 높은 소리를 내는 작은 클라리넷과
                             낮은 소리를 내는 베이스 클라리넷 등도 있으나 일반적으로 B조 클라리넷 혹은 A조 클라리넷이 쓰입니다.</p>
                         <p class="text-gray-600">넓은 음역대와 풍부한 표현력이 특징이며, 특히 부드럽게 이어서 연주하는 레가토 음색 표현에 있어 강점을 가지고 있습니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/gb_a_springtime_caper.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
@@ -166,13 +168,13 @@
                         <h3 class="text-xl font-bold mb-2">리코더</h3>
                         <p class="text-gray-600">오랜 역사를 가진 목관악기로, 교육용으로 널리 사용되며 맑은 소리를 냅니다. 교실에서는 흔히 소프라노 리코더가 사용되지만, 알토
                             리코더나 베이스 리코더 등 보다 크고 낮은 음역을 가진 리코더도 있습니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/studio/historic-winds/gb_renaissance_holiday.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
                         </audio>
                         <div class="text-sm text-gray-400 mx-3">William Kersten, Renaissance Holiday</div>
-                         <audio controls class="mt-6">
+                         <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/studio/historic-winds/gb_jolly_concertino.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
@@ -190,13 +192,13 @@
                             가지고
                             있습니다. 익살스러우면서도 부드러운 음색을 냅니다.</p>
                             
-                         <audio controls class="mt-6">
+                         <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/gb_magic_box.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
                         </audio>
                         <div class="text-sm text-gray-400 mx-3">Guy Bacos, Magic Box</div>
-                         <audio controls class="mt-6">
+                         <audio controls class="mt-6 w-full">
                             <source src="https://cdn2.vsl.co.at/audios/academy/bassoon/jb_saint-saens_bassoon_sonata-3rd_movement.mp3"
                                 type="audio/mpeg">
                             브라우저가 오디오를 지원하지 않습니다.
@@ -213,7 +215,7 @@
                         <p class="text-gray-600">우리나라의 전통 관악기 중 하나로, 삼국시대의 삼현삼죽 악기에서 유래하였으며 오늘날 널리
                             사용되는 소금은 1950년대에 만들어진 악기를 개량한 것입니다.</p><p class="text-gray-600">가로로 들고 부는 악기이며 크기는 약 40cm 내외로 대금보다 작습니다. 우리나라 관악기 중 가장 높은 음역을 가지고
                             있으며 맑고 청아한 소리가 특징입니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source
                                 src="jindo-arirang-soe.mp3"
                                 type="audio/mpeg">
@@ -237,7 +239,7 @@
                         <h3 class="text-xl font-bold mb-2">대금</h3>
                         <p class="text-gray-600">우리나라의 전통악기 중 가로로 부는 대표적인 목관악기입니다. 약 70cm 내외의 크기를 가지고 있으며 양쪽에 골이 파인 대나무(쌍골죽)를 사용하여 만듭니다.</p>
                             <p class="text-gray-600">정악대금과 산조대금 두 종류가 있고 현대에는 12개의 반음을 연주하기 위한 개량대금도 쓰이고 있습니다.</p>
-                        <audio controls class="mt-6">
+                        <audio controls class="mt-6 w-full">
                             <source
                                 src="jindo-arirang-daee.mp3"
                                 type="audio/mpeg">
@@ -263,7 +265,13 @@
                     <img class="w-full h-48 object-cover" src="trumpet.png" alt="트럼펫">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">트럼펫</h3>
-                        <p class="text-gray-600">금관악기 중 가장 높은 음역대를 가지며, 화려하고 밝은 소리로 널리 알려져 있습니다.</p>
+                        <p class="text-gray-600">금관악기 중 가장 높은 음역대를 가지며, 화려하고 밝은 소리를 냅니다. 예로부터 주요 행사나 의례, 군악대 등에서 많이 사용된 악기이기도 합니다.</p>
+                         <audio controls class="mt-6 w-full">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/brass/gb_the_wind-up_toy_soldier_c-trumpet.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-400 mx-3">Guy Bacos, The Wind-up Toy Soldier </div>
                     </div>
                 </a>
                 <!-- 호른 -->
@@ -272,8 +280,16 @@
                     <img class="w-full h-48 object-cover" src="horn.png" alt="호른">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">호른</h3>
-                        <p class="text-gray-600">달팽이 모양의 관을 가진 악기로, 부드럽고 풍부한 음색을 지니고 있습니다. 이름 그대로 먼 옛날 뿔피리에서 유래한 악기입니다.
-                            점차 개량되며 오늘날의 모양을 갖추게 되었습니다.</p>
+                        <p class="text-gray-600">달팽이 모양의 관을 가진 악기로, 이름처럼 먼 옛날 신호를 보내는 뿔피리에서 유래하였습니다. 
+                            (영어로 horn은 동물의 뿔을 의미합니다.) </p>
+                            <p class="text-gray-600">19세기 말부터 밸브가 달린 호른이 널리 사용되면서, 부드럽고도 장엄한 음색을 통해 다양한 감정을 표현하게 되었습니다.
+                            </p>
+                            <audio controls class="mt-6 w-full">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/vsl_donauwalzer.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-400 mx-3">Johann Strauss Sohn, Blue Danube Waltz </div>
                     </div>
                 </a>
                 <!-- 트롬본 -->
@@ -282,7 +298,13 @@
                     <img class="w-full h-48 object-cover" src="trombone.png" alt="트롬본">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">트롬본</h3>
-                        <p class="text-gray-600">슬라이드를 움직여 음정을 조절하며, 힘차고 장엄한 소리부터 부드러운 소리까지 다양하게 표현합니다.</p>
+                        <p class="text-gray-600">슬라이드를 움직여 음정을 조절하며, 힘차고 장엄한 소리부터 부드러운 소리까지 다양하게 표현합니다. 음역대 간 음색 차이가 적은 편이며, 슬라이드를 움직여 폭넓고 매끄러운 글리산도(두 음 사이를 미끄러지듯이 올라가거나 내려가게 연주하는 것)주법이 가능한 악기이기도 합니다.</p>
+                         <audio controls class="mt-6 w-full">
+                            <source src="https://cdn2.vsl.co.at/audios/academy/tenor-trombone/gb_black_swan_waltz.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-400 mx-3">Guy Bacos, Black Swan Waltz </div>
                     </div>
                 </a>
                 <!-- 튜바 -->
@@ -291,7 +313,13 @@
                     <img class="w-full h-48 object-cover" src="tuba.png" alt="튜바">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">튜바</h3>
-                        <p class="text-gray-600">금관악기 중 가장 낮은 소리를 내는 악기입니다. 웅장하고 깊은 음색으로 전체 합주를 받쳐줍니다.</p>
+                        <p class="text-gray-600">아주 낮은 소리를 내는 금관악기입니다. 웅장하고 깊은 음색으로 전체 합주를 받쳐주며, 음색의 풍성함을 더해줍니다.</p>
+                        <audio controls class="mt-6 w-full">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/brass/gb_the_tuba_express.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-400 mx-3">Guy Bacos, The Tuba Express </div>
                     </div>
                 </a>
             </div>
