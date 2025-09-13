@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,25 +13,41 @@
         body {
             font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
         }
+
         /* 활성 탭 스타일 */
         .tab-active {
-            border-color: #ffac12; /* blue-500 */
+            border-color: #ffac12;
+            /* blue-500 */
             color: #ff9720;
             font-weight: 700;
-            background-color: #fff8ef; /* blue-50 */
+            background-color: #fff8ef;
+            /* blue-50 */
         }
+
         /* 비활성 탭 스타일 */
         .tab-inactive {
             border-color: transparent;
-            color: #80736b; /* gray-500 */
+            color: #80736b;
+            /* gray-500 */
         }
+
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #5c472d;
+            line-height: 1.6;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
@@ -42,10 +59,12 @@
         <!-- 탭 네비게이션 -->
         <div class="mb-8 border-b border-gray-200">
             <nav class="flex -mb-px space-x-4" aria-label="Tabs">
-                <button id="tab-woodwind" class="tab-active text-lg px-4 py-3 border-b-2 font-medium rounded-t-lg transition-colors duration-200 ease-in-out focus:outline-none">
+                <button id="tab-woodwind"
+                    class="tab-active text-lg px-4 py-3 border-b-2 font-medium rounded-t-lg transition-colors duration-200 ease-in-out focus:outline-none">
                     목관악기
                 </button>
-                <button id="tab-brass" class="tab-inactive text-lg px-4 py-3 border-b-2 font-medium rounded-t-lg transition-colors duration-200 ease-in-out focus:outline-none">
+                <button id="tab-brass"
+                    class="tab-inactive text-lg px-4 py-3 border-b-2 font-medium rounded-t-lg transition-colors duration-200 ease-in-out focus:outline-none">
                     금관악기
                 </button>
             </nav>
@@ -56,75 +75,172 @@
             <!-- 목관악기 콘텐츠 -->
             <div id="content-woodwind" class="card-grid">
                 <!-- 피콜로 -->
-                <a href="https://youtu.be/PyvDKGRxubQ" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/PyvDKGRxubQ"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="piccolo.png" alt="피콜로">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">피콜로</h3>
-                        <p class="text-gray-600">피콜로 혹은 피콜로 플루트라고 불립니다. 플루트보다 한 옥타브 높은 소리를 내는 악기로, 오케스트라에서 가장 높은 음역대를 담당합니다. 플루트의 절반 정도 크기를 가지고 있습니다.</p>
+                        <p class="text-gray-600">피콜로 혹은 피콜로 플루트라고 불립니다. 플루트보다 한 옥타브 높은 소리를 내는 악기로, 오케스트라에서 가장 높은 음역대를
+                            담당합니다. 30cm를 조금 넘는 크기를 가지고 있는데, 이는 플루트의 절반 정도 크기입니다. 여리게 연주하여 섬세하고 감미로운 소리를 내기도 하고, 강하게 연주하여
+                            날카롭고 강렬한 소리를 내기도 합니다.</p>
+                        <audio controls class="mt-6">
+                            <source src="https://cdn2.vsl.co.at/audios/academy/piccolo/jb_souvenir_de_reveillon.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">Jacques Offenbach, Souvenir de Reveillon</div>
+                        <audio controls class="mt-6">
+                            <source
+                                src="https://cdn2.vsl.co.at/audios/academy/piccolo/bk_defesch_sonata_in_g_pfl_vi_06.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">Willem de Fesch, Sonata in G for piccolo</div>
                     </div>
                 </a>
                 <!-- 플루트 -->
-                <a href="https://youtu.be/-hH8KE6-1pU" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/-hH8KE6-1pU"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="flute2.png" alt="플루트">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">플루트</h3>
-                        <p class="text-gray-600">플루트 혹은 콘서트 플루트라고 불립니다. 대략 67cm 내외의 크기를 가지고 있습니다. 과거에는 나무로 만들었으나 1830년대 낭만주의 시대에 이르러 악기를 개량하려는 시도가 나타났고, 이 때 만들어진 플루트의 모습이 오늘날 현대 플루트의 기초가 되었습니다. 맑고 투명한 음색이 특징인 목관악기로, 입김을 불어넣어 소리를 냅니다.</p>
+                        <p class="text-gray-600">플루트 혹은 콘서트 플루트라고 불립니다. 대략 67cm 내외의 크기를 가지고 있습니다. </p>
+                        <p class="text-gray-600">과거에는 나무로 만들었으나 1830년대
+                            낭만주의 시대에 이르러 악기를 개량하려는 시도가 나타났고, 이 때 만들어진 플루트의 모습이 오늘날 현대 플루트의 기초가 되었습니다. 맑고 투명한 음색이 특징인
+                            목관악기로, 입김을 불어넣어 소리를 냅니다.</p>
+                        <audio controls class="mt-6">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/flute_virtuos.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">Christian Kardeis, Flute virtuoso</div>
+                        <audio controls class="mt-6">
+                            <source src="https://cdn2.vsl.co.at/audios/academy/flute/gb_spring.mp3" type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">Guy Bacos, Spring</div>
                     </div>
                 </a>
                 <!-- 오보에 -->
-                <a href="https://youtu.be/6e4bQO4tTYQ" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/6e4bQO4tTYQ"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="oboe.jpg" alt="오보에">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">오보에</h3>
-                        <p class="text-gray-600">관악기에서 입에 물고 진동시켜 소리를 내는 부분을 가리켜 리드라고 부릅니다. 오보에는 두 개의 목재 리드를 사용하는 겹리드 악기입니다. 리드 부분을 합쳐 약 70cm 내외의 크기를 가집니다. 독특하고 애수 띤 음색을 가집니다.</p>
+                        <p class="text-gray-600">관악기에서 입에 물고 진동시켜 소리를 내는 부분을 가리켜 리드라고 부릅니다. 오보에는 두 개의 목재 리드를 사용하는 겹리드
+                            악기입니다. 리드 부분을 합쳐 약 70cm 내외의 크기를 가집니다. 독특하고 애수 띤 음색을 가집니다.</p>
+                        <p class="text-gray-600">대중문화에서는 영화 '미션(The Mission)'에서 "Gabriel's Oboe"라는 곡을 연주하는 장면을 통해 널리
+                            알려지기도 했습니다.</p>
+                        <audio controls class="mt-6">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/britten_pan.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">Benjamin Britten, Pan</div>
                     </div>
                 </a>
                 <!-- 클라리넷 -->
-                <a href="https://youtu.be/jX0SJrLXa2A" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/jX0SJrLXa2A"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="clarinet2.png" alt="클라리넷">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">클라리넷</h3>
-                        <p class="text-gray-600">오보에와는 달리 하나의 리드를 사용하는 홑리드 악기입니다. 전체 길이는 오보에와 비슷합니다. 높은 소리를 내는 작은 클라리넷과 낮은 소리를 내는 베이스 클라리넷 등도 있으나 일반적으로 B조 클라리넷 혹은 A조 클라리넷이 쓰입니다. 넓은 음역대와 풍부한 표현력이 특징입니다.</p>
+                        <p class="text-gray-600">오보에와는 달리 하나의 리드를 사용하는 홑리드 악기입니다. 전체 길이는 오보에와 비슷합니다. 높은 소리를 내는 작은 클라리넷과
+                            낮은 소리를 내는 베이스 클라리넷 등도 있으나 일반적으로 B조 클라리넷 혹은 A조 클라리넷이 쓰입니다.</p>
+                        <p class="text-gray-600">넓은 음역대와 풍부한 표현력이 특징이며, 특히 부드럽게 이어서 연주하는 레가토 음색 표현에 있어 강점을 가지고 있습니다.</p>
+                        <audio controls class="mt-6">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/woodwinds/gb_a_springtime_caper.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">Guy Bacos, A Springtime Caper</div>
                     </div>
                 </a>
                 <!-- 리코더 -->
-                <a href="https://youtu.be/twohEIheHb0" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <img class="w-full h-48 object-cover" src="https://img.apmcdn.org/17adf34b4ba45d3e3020387508c73308cd935abf/widescreen/4e2eae-20220330-recorders-600.jpg" alt="리코더">
+                <a href="https://youtu.be/HkmalCW9aeQ?list=RDHkmalCW9aeQ"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <img class="w-full h-48 object-cover"
+                        src="https://img.apmcdn.org/17adf34b4ba45d3e3020387508c73308cd935abf/widescreen/4e2eae-20220330-recorders-600.jpg"
+                        alt="리코더">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">리코더</h3>
-                        <p class="text-gray-600">오랜 역사를 가진 목관악기로, 교육용으로 널리 사용되며 맑은 소리를 냅니다. 교실에서는 흔히 소프라노 리코더가 사용되지만, 알토 리코더나 베이스 리코더 등 보다 크고 낮은 음역을 가진 리코더도 있습니다.</p>
+                        <p class="text-gray-600">오랜 역사를 가진 목관악기로, 교육용으로 널리 사용되며 맑은 소리를 냅니다. 교실에서는 흔히 소프라노 리코더가 사용되지만, 알토
+                            리코더나 베이스 리코더 등 보다 크고 낮은 음역을 가진 리코더도 있습니다.</p>
+                        <audio controls class="mt-6">
+                            <source src="https://cdn2.vsl.co.at/audios/studio/historic-winds/gb_renaissance_holiday.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">William Kersten, Renaissance Holiday</div>
                     </div>
                 </a>
                 <!-- 바순 -->
-                <a href="https://youtu.be/4I2xT9Kq6jo" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/4I2xT9Kq6jo"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="basoon.png" alt="바순">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">바순</h3>
-                        <p class="text-gray-600">목관악기 중 저음역을 담당하는 악기로, 오보에처럼 두 개의 리드를 가진 겹리드 악기입니다. 약 135cm의 큰 크기를 가지고 있습니다. 익살스러우면서도 부드러운 음색을 냅니다.</p>
+                        <p class="text-gray-600">목관악기 중 저음역을 담당하는 악기로, 오보에처럼 두 개의 리드를 가진 겹리드 악기입니다. 약 140cm 내외의 큰 크기를
+                            가지고
+                            있습니다. 익살스러우면서도 부드러운 음색을 냅니다.</p>
                     </div>
                 </a>
                 <!-- 소금 -->
-                <a href="https://youtu.be/0lVLAlOE-WY" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/0lVLAlOE-WY"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="소금.png" alt="소금">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">소금</h3>
-                        <p class="text-gray-600">우리나라의 전통 관악기 중 하나로, 대금보다 작은 크기를 지녔습니다. 가로로 부는 악기이며 청아한 소리가 특징입니다.</p>
+                        <p class="text-gray-600">우리나라의 전통 관악기 중 하나로, 대금보다 작은 크기를 지녔습니다. 삼국시대의 삼현삼죽 악기에서 유래하였으나 오늘날 널리
+                            사용되는 소금은 1950년대에 만들어진 악기를 개량한 것입니다. 가로로 부는 악기로 크기는 약 40cm 내외입니다. 우리나라 관악기 중 가장 높은 음역을 가지고
+                            있으며 맑고 청아한 소리가 특징입니다.</p>
+                        <audio controls class="mt-6">
+                            <source
+                                src="jindo-arirang-so.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">국립국악원, 남도민요(진도아리랑)</div>
+                        <audio controls class="mt-6">
+                            <source
+                                src="https://www.gugak.go.kr/digitaleum/front/preSound/phrase/play.do?phrase_cd=w4-149-015"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">국립국악원, 군악1장 타령 제2장단</div>
                     </div>
                 </a>
                 <!-- 대금 -->
-                <a href="https://youtu.be/5EUsqDbUwO0" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/5EUsqDbUwO0"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="대금.png" alt="대금">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">대금</h3>
-                        <p class="text-gray-600">우리나라의 전통악기 중 가로로 부는 대표적인 목관악기입니다.</p>
+                        <p class="text-gray-600">우리나라의 전통악기 중 가로로 부는 대표적인 목관악기입니다. 약 70cm 내외의 크기를 가지고 있으며 양쪽에 골이 파인 대나무(쌍골죽)를 사용하여 만듭니다.</p>
+                            <p class="text-gray-600">정악대금과 산조대금 두 종류가 있고 현대에는 12개의 반음을 연주하기 위한 개량대금도 쓰이고 있습니다.</p>
+                        <audio controls class="mt-6">
+                            <source
+                                src="jindo-arirang.mp3"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">국립국악원, 진도아리랑</div>
+                        <audio controls class="mt-6">
+                            <source
+                                src="https://www.gugak.go.kr/digitaleum/front/preSound/phrase/play.do?phrase_cd=w3-913-001"
+                                type="audio/mpeg">
+                            브라우저가 오디오를 지원하지 않습니다.
+                        </audio>
+                        <div class="text-sm text-gray-600">국립국악원, 도라지타령</div>
                     </div>
                 </a>
             </div>
 
             <!-- 금관악기 콘텐츠 -->
             <div id="content-brass" class="hidden card-grid">
-                 <!-- 트럼펫 -->
-                <a href="https://youtu.be/zL_X3UvEPu4" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <!-- 트럼펫 -->
+                <a href="https://youtu.be/zL_X3UvEPu4"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="trumpet.png" alt="트럼펫">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">트럼펫</h3>
@@ -132,15 +248,18 @@
                     </div>
                 </a>
                 <!-- 호른 -->
-                <a href="https://youtu.be/-A3cCQeV44M" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/-A3cCQeV44M"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="horn.png" alt="호른">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">호른</h3>
-                        <p class="text-gray-600">달팽이 모양의 관을 가진 악기로, 부드럽고 풍부한 음색을 지니고 있습니다. 이름 그대로 먼 옛날 뿔피리에서 유래한 악기입니다. 점차 개량되며 오늘날의 모양을 갖추게 되었습니다.</p>
+                        <p class="text-gray-600">달팽이 모양의 관을 가진 악기로, 부드럽고 풍부한 음색을 지니고 있습니다. 이름 그대로 먼 옛날 뿔피리에서 유래한 악기입니다.
+                            점차 개량되며 오늘날의 모양을 갖추게 되었습니다.</p>
                     </div>
                 </a>
                 <!-- 트롬본 -->
-                <a href="https://youtu.be/e3tOjQPcJ-I" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/e3tOjQPcJ-I"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="trombone.png" alt="트롬본">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">트롬본</h3>
@@ -148,7 +267,8 @@
                     </div>
                 </a>
                 <!-- 튜바 -->
-                <a href="https://youtu.be/XunS69N9Oug" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <a href="https://youtu.be/XunS69N9Oug"
+                    class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <img class="w-full h-48 object-cover" src="tuba.png" alt="튜바">
                     <div class="p-5">
                         <h3 class="text-xl font-bold mb-2">튜바</h3>
@@ -158,6 +278,15 @@
             </div>
         </main>
     </div>
+    <footer class="footer bg-zinc-100 ">
+        <p class="font-semibold">출처</p>
+        <p><a href="https://www.vsl.co.at/academy" target="_blank" rel="noopener noreferrer">Vienna Symphonic Library</a></p>
+        <p><a href="https://www.gugak.go.kr/site/main/index001" target="_blank" rel="noopener noreferrer">국립국악원 누리집</a>
+        </p>
+        <p class="text-xs">
+            Copyright © 2025 Vienna Symphonic Library. / Copyright © 2018 국립국악원.
+        </p>        
+    </footer>
 
     <script>
         const tabWoodwind = document.getElementById('tab-woodwind');
@@ -169,7 +298,7 @@
             // 탭 스타일 변경
             tabWoodwind.classList.replace('tab-inactive', 'tab-active');
             tabBrass.classList.replace('tab-active', 'tab-inactive');
-            
+
             // 콘텐츠 표시/숨김
             contentWoodwind.classList.remove('hidden');
             contentBrass.classList.add('hidden');
@@ -189,4 +318,5 @@
         tabBrass.addEventListener('click', showBrass);
     </script>
 </body>
+
 </html>
