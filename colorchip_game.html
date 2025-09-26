@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상 정렬 퍼즐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 사용자 정의 스타일 */
+        body {
+            font-family: 'Inter', sans-serif;
+            touch-action: none; /* 모바일에서 스크롤 방지 */
+        }
+        .slot, .chip {
+            width: 70px; height: 70px;
+            transition: all 0.2s ease-in-out;
+            flex-shrink: 0;
+        }
+        /* 난이도별 칩/슬롯 크기 조절 (레벨 7 이상) */
+        .difficulty-medium .slot, .difficulty-medium .chip { width: 50px; height: 50px; }
+        
+        @media (max-width: 768px) {
+            .slot, .chip { width: 45px; height: 45px; }
+            .difficulty-medium .slot, .difficulty-medium .chip { width: 38px; height: 38px; }
+        }
+
+        .chip-container .chip:hover {
+            transform: scale(1.1);
+            cursor: grab;
+        }
+        .dragging {
+            opacity: 0.5;
+            transform: scale(0.9);
+        }
+        .drop-hover {
+            border-color: #f87171 !important; /* red-400 */
+            transform: scale(1.05);
+        }
+        .correct {
+            border: 3px solid #4ade80 !important; /* green-400 */
+        }
+        /* 레이아웃 스타일 */
+        .layout-grid {
+            display: grid;
+            gap: 4px;
+        }
+        @media (min-width: 640px) {
+            .layout-grid { gap: 8px; }
+        }
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- 시작 화면 -->
+    <div id="start-screen" class="text-center flex flex-col items-center justify-center">
+        <h1 class="text-5xl font-bold mb-4">색상 정렬 퍼즐</h1>
+        <p class="text-gray-400 mb-8 text-lg">플레이할 레벨을 선택하세요.</p>
+        <div id="level-selection-container" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-3 max-w-2xl">
+            <!-- 레벨 버튼이 여기에 동적으로 추가됩니다. -->
+        </div>
+    </div>
+
+    <!-- 게임 화면 (초기에는 숨김) -->
+    <div id="game-screen" class="hidden w-full flex flex-col items-center">
+        <div class="text-center mb-6">
+            <div class="flex justify-center items-center gap-4 mb-2">
+                 <h2 id="level-title" class="text-3xl font-bold"></h2>
+                 <div id="timer" class="text-2xl font-mono bg-gray-700 px-3 py-1 rounded-md">00:00</div>
+            </div>
+            <p class="text-gray-400">색상 칩을 드래그하여 그라데이션을 완성하세요.</p>
+        </div>
+
+        <!-- 퍼즐이 놓일 공간 -->
+        <div id="puzzle-container" class="bg-gray-800 p-3 rounded-xl shadow-lg mb-6">
+        </div>
+
+        <!-- 색상 칩들이 흩어져 있을 공간 -->
+        <div id="chip-container" class="flex justify-center items-center flex-wrap gap-2 sm:gap-3 p-3 min-h-[100px] w-full max-w-3xl">
+        </div>
+
+        <!-- 게임 상태 메시지 및 버튼 -->
+        <div id="status-container" class="text-center mt-2 h-20">
+            <p id="status-message" class="text-2xl font-bold text-green-400 mb-4"></p>
+            <div id="button-container" class="flex gap-4 justify-center">
+                 <button id="main-menu-button" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-transform transform hover:scale-105">
+                    레벨 선택
+                </button>
+                 <button id="restart-button" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition-transform transform hover:scale-105">
+                    새 게임
+                </button>
+                <button id="next-level-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 hidden">
+                    다음 레벨
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const startScreen = document.getElementById('start-screen');
+        const gameScreen = document.getElementById('game-screen');
+        const levelSelectionContainer = document.getElementById('level-selection-container');
+        const levelTitle = document.getElementById('level-title');
+        const timerElement = document.getElementById('timer');
+        const puzzleContainer = document.getElementById('puzzle-container');
+        const chipContainer = document.getElementById('chip-container');
+        const statusMessage = document.getElementById('status-message');
+        const mainMenuButton = document.getElementById('main-menu-button');
+        const restartButton = document.getElementById('restart-button');
+        const nextLevelButton = document.getElementById('next-level-button');
+
+        const MAX_LEVEL = 20;
+        let currentLevel = 1;
+        let draggedChip = null;
+        let correctOrder = [];
+        let timerInterval = null;
+        let startTime = 0;
+
+        function createLevelButtons() {
+            levelSelectionContainer.innerHTML = '';
+            for (let i = 1; i <= MAX_LEVEL; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.dataset.level = i;
+                button.classList.add('level-btn', 'bg-gray-700', 'hover:bg-blue-600', 'text-white', 'font-bold', 'w-16', 'h-16', 'rounded-lg', 'text-xl', 'transition-all', 'transform', 'hover:scale-110');
+                button.addEventListener('click', () => {
+                    currentLevel = i;
+                    startGame();
+                });
+                levelSelectionContainer.appendChild(button);
+            }
+        }
+
+        function startGame() {
+            startScreen.classList.add('hidden');
+            gameScreen.classList.remove('hidden');
+            levelTitle.textContent = `레벨 ${currentLevel}`;
+            startTimer();
+            setupGame();
+        }
+
+        function buildLayout(totalSlots) {
+            puzzleContainer.innerHTML = '';
+            const orderedSlots = [];
+            
+            puzzleContainer.className = 'bg-gray-800 p-3 rounded-xl shadow-lg mb-6';
+            puzzleContainer.style.gridTemplateColumns = '';
+
+            // 레벨 1-14: 선형
+            if (totalSlots < 17) {
+                puzzleContainer.classList.add('flex', 'justify-center', 'items-center', 'flex-wrap', 'gap-1', 'sm:gap-2');
+                for (let i = 0; i < totalSlots; i++) {
+                    const slot = document.createElement('div');
+                    orderedSlots.push(slot);
+                    puzzleContainer.appendChild(slot);
+                }
+            // 레벨 15-20: 사각형
+            } else {
+                puzzleContainer.classList.add('layout-grid');
+                const cols = Math.ceil(Math.sqrt(totalSlots));
+                puzzleContainer.style.gridTemplateColumns = `repeat(${cols}, auto)`;
+                for (let i = 0; i < totalSlots; i++) {
+                    const slot = document.createElement('div');
+                    orderedSlots.push(slot);
+                    puzzleContainer.appendChild(slot);
+                }
+            }
+            return orderedSlots;
+        }
+
+        function setupGame() {
+            chipContainer.innerHTML = '';
+            statusMessage.textContent = '';
+            nextLevelButton.classList.add('hidden');
+            correctOrder = [];
+
+            const CHIP_COUNT = currentLevel + 1;
+            const totalSlots = CHIP_COUNT + 2;
+
+            const orderedSlots = buildLayout(totalSlots);
+            
+            const startHue = Math.floor(Math.random() * 360);
+            const hueShift = 90 + Math.floor(Math.random() * 180);
+            const endHue = (startHue + hueShift) % 360;
+            const saturation = 70 + Math.floor(Math.random() * 31);
+            const lightness = 50 + Math.floor(Math.random() * 11);
+            
+            const startColor = [startHue, saturation, lightness];
+            const endColor = [endHue, saturation, lightness];
+
+            for (let i = 0; i < totalSlots; i++) {
+                correctOrder.push(hslToCss(interpolateColor(startColor, endColor, i / (totalSlots - 1))));
+            }
+
+            // 칩 개수가 8개 초과일 때 (레벨 7 이상)부터 크기를 줄임
+            const difficultyClass = totalSlots > 8 ? 'difficulty-medium' : '';
+
+            orderedSlots.forEach((slot, index) => {
+                slot.classList.add('slot', 'rounded-lg');
+                if (difficultyClass) slot.classList.add(difficultyClass);
+                slot.dataset.index = index;
+                if (index === 0 || index === totalSlots - 1) {
+                    slot.style.backgroundColor = correctOrder[index];
+                } else {
+                    slot.classList.add('bg-gray-700', 'border-2', 'border-dashed', 'border-gray-600');
+                    addDropZoneListeners(slot);
+                }
+            });
+
+            const chipsToShuffle = correctOrder.slice(1, -1);
+            shuffleArray(chipsToShuffle);
+            chipsToShuffle.forEach(color => {
+                const chip = document.createElement('div');
+                chip.classList.add('chip', 'rounded-lg', 'shadow-md');
+                if (difficultyClass) chip.classList.add(difficultyClass);
+                chip.style.backgroundColor = color;
+                chip.dataset.color = color;
+                chip.draggable = true;
+                addChipListeners(chip);
+                chipContainer.appendChild(chip);
+            });
+            
+            addDropZoneListeners(chipContainer);
+        }
+        
+        function formatTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}`;
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerElement.textContent = '00:00';
+            startTime = Date.now();
+            timerInterval = setInterval(() => {
+                const elapsedTime = Date.now() - startTime;
+                timerElement.textContent = formatTime(elapsedTime);
+            }, 1000);
+        }
+
+        function interpolateColor(c1, c2, f) { return [c1[0] + f * (c2[0] - c1[0]), c1[1] + f * (c2[1] - c1[1]), c1[2] + f * (c2[2] - c1[2])]; }
+        function hslToCss(hsl) { return `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`; }
+        function shuffleArray(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } }
+
+        function addChipListeners(chip) {
+            chip.addEventListener('dragstart', (e) => { draggedChip = e.target; setTimeout(() => e.target.classList.add('dragging'), 0); });
+            chip.addEventListener('dragend', (e) => e.target.classList.remove('dragging'));
+        }
+
+        function addDropZoneListeners(zone) {
+            zone.addEventListener('dragover', (e) => e.preventDefault());
+            zone.addEventListener('dragenter', (e) => { e.preventDefault(); if (e.target.closest('.slot, #chip-container')) e.target.closest('.slot, #chip-container').classList.add('drop-hover'); });
+            zone.addEventListener('dragleave', (e) => { if (e.target.closest('.slot, #chip-container')) e.target.closest('.slot, #chip-container').classList.remove('drop-hover'); });
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const dropTarget = e.target.closest('.slot, #chip-container');
+                if(!dropTarget) return;
+                dropTarget.classList.remove('drop-hover');
+                const targetSlot = dropTarget.classList.contains('slot') ? dropTarget : null;
+                if (targetSlot && !targetSlot.hasChildNodes()) {
+                    targetSlot.appendChild(draggedChip);
+                    checkWinCondition();
+                } else if (dropTarget.id === 'chip-container') {
+                    chipContainer.appendChild(draggedChip);
+                }
+            });
+        }
+        
+        function checkWinCondition() {
+            const CHIP_COUNT = currentLevel + 1;
+            if (puzzleContainer.querySelectorAll('.slot:has(.chip)').length !== CHIP_COUNT) return;
+            
+            let isCorrect = true;
+            for (let i = 1; i < correctOrder.length - 1; i++) {
+                const slot = puzzleContainer.querySelector(`.slot[data-index='${i}']`);
+                const chip = slot ? slot.querySelector('.chip') : null;
+                if (!chip || chip.dataset.color !== correctOrder[i]) {
+                    isCorrect = false;
+                    break;
+                }
+            }
+
+            if (isCorrect) {
+                clearInterval(timerInterval); // 승리 시 타이머 정지
+                statusMessage.textContent = '완벽해요!';
+                if(currentLevel < MAX_LEVEL) nextLevelButton.classList.remove('hidden');
+                puzzleContainer.querySelectorAll('.slot').forEach(slot => slot.classList.add('correct'));
+            } else {
+                 statusMessage.textContent = '어딘가 어색해요...';
+                 setTimeout(() => { if (statusMessage.textContent === '어딘가 어색해요...') statusMessage.textContent = ''; }, 2000);
+            }
+        }
+        
+        mainMenuButton.addEventListener('click', () => {
+            if(timerInterval) clearInterval(timerInterval);
+            gameScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+        });
+
+        restartButton.addEventListener('click', startGame);
+
+        nextLevelButton.addEventListener('click', () => {
+            if (currentLevel < MAX_LEVEL) {
+                currentLevel++;
+                startGame();
+            }
+        });
+        
+        createLevelButtons();
+    </script>
+</body>
+</html>
+
