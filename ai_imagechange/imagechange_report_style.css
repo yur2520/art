@@ -1,0 +1,122 @@
+@font-face {
+            font-family: 'SUITE';
+            font-weight: 300 900;           
+            src: url('../SUITE-Variable.woff2') format('woff2-variations');
+        }
+
+
+body {
+    font-family: 'SUITE', -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* 부드러운 배경색 */
+    color: #333;
+}
+
+/* 헤더 (제목) 스타일 */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 10px auto 0;
+}
+
+/* 카드 컨테이너 (그리드 레이아웃) - 최대 2열 유지 */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px; /* 카드 사이의 간격 */
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 개별 카드 스타일 */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* 모서리가 둥글게 잘리도록 함 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* 내용을 세로로 쌓음 */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* 마우스를 올리면 살짝 위로 이동 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 카드 내부 텍스트 영역 */
+.card-text {
+    padding: 20px;
+    word-break: keep-all; /* 단어 단위로 줄바꿈 */
+}
+
+.card-text h3 {
+    margin: 0 0 4px 0;
+    color: #34495e;
+}
+
+.card-text h4 {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: #555;
+    text-align: right; /* 학생 이름 오른쪽 정렬 */
+}
+
+.card-text p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* 카드 내부 이미지 영역 (Flexbox로 좌우 배치) */
+.card-images {
+    display: flex;
+    gap: 16px; /* 이미지 사이 간격 */
+    padding: 0 20px 20px 20px; 
+}
+
+/* 개별 이미지 래퍼 (원본/수정본) */
+.image-wrapper {
+    flex: 1; 
+    text-align: center;
+}
+
+.image-wrapper p {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* 이미지 스타일 */
+.image-wrapper img {
+    width: 100%; 
+    max-width: 100%;
+    aspect-ratio: 3 / 5; /* 기본 세로 비율 (3:5) */
+    object-fit: cover; /* (수정) contain -> cover로 변경 (비율 유지하며 꽉 채우기, 잘릴 수 있음) */
+    background-color: #fafafa; 
+    display: block; 
+    border-radius: 8px; /* 각 이미지에 라운딩 적용 */
+    border: 1px solid #ddd; /* 각 이미지에 테두리 적용 */
+}
+
+/* [추가된 스타일] 가로 이미지용 (landscape 클래스) */
+.card-images.landscape .image-wrapper img {
+    aspect-ratio: 4 / 3; /* 가로 비율 (4:3) 로 덮어쓰기 */
+}
