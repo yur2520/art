@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 해설하기</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('../SUITE-Variable.woff2') format('woff2-variations');
+        }
+
+        body {
+            font-family: 'SUITE Variable', 'Inter', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            word-break: keep-all;
+            word-wrap: break-word;
+        }
+
+        /* 탭 버튼 기본 스타일 */
+        .tab-button {
+            transition: all 0.2s ease;
+        }
+
+        /* 활성화된 탭 버튼 스타일 */
+        .tab-button.active {
+            color: #2563EB; /* text-blue-600 */
+            font-weight: 600;
+            border-bottom-color: #2563EB; /* border-blue-600 */
+        }
+        
+        /* 탭 콘텐츠 기본 숨김 */
+        .tab-content {
+            display: none;
+        }
+
+        /* 활성화된 탭 콘텐츠 보임 */
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg">
+        
+        <!-- 페이지 제목 -->
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            사진 해설하기
+        </h1>
+        
+        <!-- 페이지 부제목 -->
+        <p class="text-lg text-gray-700 mb-10">
+            내가 촬영한 사진을 해설하는 글을 작성해 봅시다. 예시 자료와 지난 시간 작성한 글을 토대로 글을 작성해 보세요.
+        </p>
+
+        <!-- 탭 네비게이션 -->
+        <div class="border-b border-gray-300 mb-6">
+            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                <button class="tab-button active py-4 px-1 sm:px-6 text-sm sm:text-base font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-800 hover:border-gray-300" data-tab="1">
+                    예시 1: 자연
+                </button>
+                <button class="tab-button py-4 px-1 sm:px-6 text-sm sm:text-base font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-800 hover:border-gray-300" data-tab="2">
+                    예시 2: 인물
+                </button>
+                <button class="tab-button py-4 px-1 sm:px-6 text-sm sm:text-base font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-800 hover:border-gray-300" data-tab="3">
+                    예시 3: 일상
+                </button>
+                <button class="tab-button py-4 px-1 sm:px-6 text-sm sm:text-base font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-800 hover:border-gray-300" data-tab="4">
+                    예시 4: 동물
+                </button>
+                <button class="tab-button py-4 px-1 sm:px-6 text-sm sm:text-base font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-800 hover:border-gray-300" data-tab="5">
+                    예시 5: 사물
+                </button>
+            </nav>
+        </div>
+
+        <!-- 탭 콘텐츠 -->
+        <div class="bg-gray-50 p-6 rounded-lg">
+            
+            <!-- 예시 1: 자연 풍경 사진 -->
+            <div id="content-1" class="tab-content active">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">작품 제목: '아침의 시작'</h2>
+                <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">"안녕하세요. 제 작품 '아침의 시작'을 소개하겠습니다.
+이 사진은 2024년 10월 15일, 학교 뒷산에서 촬영했습니다. 아침 일찍 등교하다가 안개 낀 풍경이 너무 아름다워서 카메라를 꺼내 들었습니다.
+저는 이 사진을 통해 '새로운 시작'의 느낌을 담고 싶었습니다. 안개 사이로 떠오르는 햇빛이 마치 희망처럼 느껴졌거든요. 어두운 밤이 지나고 아침이 오듯이, 힘든 일이 있어도 새로운 날은 온다는 의미를 표현하고자 했습니다.
+촬영할 때는 낮은 각도에서 위를 올려다보며 찍었습니다. 그래야 햇빛과 안개의 층이 더 잘 보였기 때문입니다. 또한 나무 실루엣을 프레임 왼쪽에 배치해서 시선이 자연스럽게 빛으로 향하도록 구도를 잡았습니다.
+이 사진을 보시는 분들께서 아침의 상쾌함과 따뜻함을 느끼셨으면 좋겠습니다. 특히 안개 사이로 비치는 빛의 부드러움을 주목해주시면 감사하겠습니다."</p>
+            </div>
+
+            <!-- 예시 2: 인물 사진 -->
+            <div id="content-2" class="tab-content">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">작품 제목: '할머니의 손'</h2>
+                <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">"안녕하세요. '할머니의 손'이라는 제목의 제 작품을 소개합니다.
+이 사진은 2024년 9월 5일, 할머니 댁에서 촬영했습니다. 추석 연휴에 할머니를 뵈러 갔다가 뜨개질하시는 모습이 인상 깊어 촬영하게 되었습니다.
+제가 이 사진을 찍은 이유는 할머니의 손이 정말 아름답다고 느꼈기 때문입니다. 주름진 손이지만, 그 손으로 저를 위해 목도리를 만들어주시는 모습에서 사랑이 느껴졌습니다. 사진 속에는 할머니께서 평생 가족을 위해 일하신 이야기가 담겨 있습니다.
+저는 이 사진을 통해 '사랑의 손길'을 표현하고자 했습니다. 화려하지 않지만 따뜻하고 소중한 가족의 사랑을 보여주고 싶었습니다.
+촬영 시에는 클로즈업으로 손에 초점을 맞췄습니다. 배경은 흐리게 처리하여 손과 뜨개질에 집중할 수 있도록 했습니다. 자연광이 창문을 통해 옆에서 들어와 손의 입체감이 살아나도록 빛의 방향도 고려했습니다.
+관람하시는 분들께서 할머니의 손에 담긴 세월과 사랑을 느껴주셨으면 합니다. 특히 뜨개질 바늘을 잡은 손가락의 섬세한 움직임을 눈여겨봐 주시면 좋겠습니다."</p>
+            </div>
+
+            <!-- 예시 3: 일상 사진 -->
+            <div id="content-3" class="tab-content">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">작품 제목: '빗방울의 여행'</h2>
+                <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">"안녕하세요. 제 작품 '빗방울의 여행'을 소개하겠습니다.
+이 사진은 2024년 11월 3일, 집 근처 버스 정류장에서 촬영했습니다. 비 오는 날 버스를 기다리던 중, 유리창에 맺힌 빗방울 너머로 보이는 풍경이 흥미로워 촬영하게 되었습니다.
+비 오는 날은 보통 우울하다고 생각하지만, 저는 빗방울을 통해 본 세상이 오히려 신비롭고 아름답다고 느꼈습니다. 빗방울 하나하나가 작은 렌즈가 되어 세상을 다르게 보여주는 것 같았습니다.
+이 사진에서 저는 '다른 시각으로 세상 바라보기'를 표현하고자 했습니다. 같은 풍경도 어떻게 보느냐에 따라 전혀 다르게 느껴질 수 있다는 메시지를 담았습니다.
+촬영 시에는 빗방울에 초점을 맞추고 배경은 흐리게 했습니다. 그래야 빗방울의 투명함과 그 안에 비친 세상이 더 선명하게 보였기 때문입니다. 정면이 아닌 약간 비스듬한 각도에서 촬영하여 빗방울이 흘러내리는 역동적인 느낌을 살렸습니다.
+관람하시는 분들께서 빗방울 하나하나의 아름다움을 발견하셨으면 좋겠습니다. 특히 빗방울 속에 비친 흐릿한 풍경에서 여러분만의 이야기를 찾아보시기 바랍니다."</p>
+            </div>
+
+            <!-- 예시 4: 동물 사진 -->
+            <div id="content-4" class="tab-content">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">작품 제목: '기다림'</h2>
+                <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">"안녕하세요. '기다림'이라는 제목의 작품을 소개합니다.
+이 사진은 2024년 10월 22일, 우리 집 거실에서 촬영했습니다. 학교에서 돌아왔을 때 우리 강아지 '복이'가 항상 현관문 앞에서 저를 기다리고 있는데, 그 모습이 너무 사랑스러워 카메라에 담고 싶었습니다.
+사진 속에는 주인을 기다리는 강아지의 충직한 마음이 담겨 있습니다. 복이는 제가 나간 후 몇 시간이고 현관 앞에 앉아 기다린다고 합니다. 그 모습을 보면 저도 복이에게 정말 소중한 존재라는 걸 느낍니다.
+저는 이 사진을 통해 '믿음'과 '기다림'의 가치를 표현하고자 했습니다. 누군가를 믿고 기다린다는 것이 얼마나 아름다운 일인지 보여주고 싶었습니다.
+촬영할 때는 복이와 눈높이를 맞추기 위해 바닥에 엎드려 찍었습니다. 복이의 뒷모습을 담아 현관문을 향한 시선이 강조되도록 했습니다. 자연광이 창문을 통해 들어와 복이의 털이 따뜻하게 빛나는 오후 시간을 선택했습니다.
+보시는 분들께서 복이의 뒷모습에서 느껴지는 간절함과 사랑을 느끼셨으면 합니다. 특히 현관문을 향해 곧게 선 귀와 꼬리의 긴장감을 주목해주시면 감사하겠습니다."</p>
+            </div>
+            
+            <!-- 예시 5: 사물 사진 -->
+            <div id="content-5" class="tab-content">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">작품 제목: '시간의 흔적'</h2>
+                <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">"안녕하세요. 제 작품 '시간의 흔적'을 소개하겠습니다.
+이 사진은 2024년 9월 18일, 학교 도서관에서 촬영했습니다. 오래된 책을 정리하던 중, 세월의 흔적이 고스란히 남아 있는 책 한 권이 눈에 띄어 촬영하게 되었습니다.
+이 책은 1985년에 출판되어 거의 40년 동안 수많은 학생들의 손을 거쳤습니다. 페이지가 누렇게 변하고 모서리가 닳았지만, 그 안의 지식은 여전히 살아 있습니다. 사진 속에는 여러 세대의 학생들이 이 책을 통해 배우고 성장한 이야기가 담겨 있습니다.
+저는 이 작품을 통해 '지식의 전승'과 '시간의 가치'를 표현하고자 했습니다. 낡은 것이 무가치한 게 아니라, 오히려 그 안에 더 깊은 의미와 역사가 있다는 것을 보여주고 싶었습니다.
+촬영 시에는 위에서 내려다보는 각도로 책을 찍었습니다. 책이 펼쳐진 모습이 잘 보이도록 했고, 자연광이 비스듬히 들어와 책의 질감과 누런 색이 강조되도록 했습니다. 배경은 어둡게 처리하여 책에 시선이 집중되도록 구도를 잡았습니다.
+관람하시는 분들께서 낡은 책의 아름다움과 가치를 새롭게 발견하셨으면 좋겠습니다. 특히 페이지의 변색과 접힌 모서리에서 수많은 사람들이 이 책과 함께한 시간을 느껴주시기 바랍니다."</p>
+            </div>
+        </div>
+
+        <!-- 해설 작성 팁 -->
+        <div class="mt-12 pt-10 border-t border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900 mb-5">
+                해설 작성 팁
+            </h2>
+            <p class="text-gray-700 mb-6">
+                아래 구조를 생각하며 글을 작성해 보세요.
+            </p>
+            <ul class="list-disc list-inside bg-blue-50 p-6 rounded-lg space-y-3">
+                <li class="text-gray-800">인사 및 작품 소개 (제목 언급)</li>
+                <li class="text-gray-800">촬영 정보 (날짜, 장소)</li>
+                <li class="text-gray-800">촬영 계기 (왜 찍게 되었는지)</li>
+                <li class="text-gray-800">사진 속 이야기</li>
+                <li class="text-gray-800">표현 의도 (무엇을 전달하고 싶었는지)</li>
+                <li class="text-gray-800">촬영 기법 (각도, 빛, 구도 등)</li>
+                <li class="text-gray-800">관람 포인트 (특히 봐주었으면 하는 부분)</li>
+            </ul>
+        </div>
+
+    </div> <!-- end of main container -->
+
+    <script>
+        // 탭 기능 활성화를 위한 JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // 모든 버튼과 콘텐츠에서 'active' 클래스 제거
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // 클릭된 버튼에 'active' 클래스 추가
+                    button.classList.add('active');
+
+                    // 연결된 콘텐츠를 찾아 'active' 클래스 추가
+                    const tabId = button.getAttribute('data-tab');
+                    const activeContent = document.getElementById(`content-${tabId}`);
+                    if (activeContent) {
+                        activeContent.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

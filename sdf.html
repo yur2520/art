@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 사진 작품 학습지</title>
+    <!-- 인쇄용 서체를 불러옵니다 (KoPub 바탕체 또는 Noto Serif KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=KoPub+Batang:wght@400;700&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'KoPub Batang', 'Noto Serif KR', serif;
+            line-height: 1.7;
+            background-color: #f4f4f4; /* 화면에서 볼 때의 배경색 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* A4 페이지 컨테이너 */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm; /* A4 용지 여백 */
+            margin: 10mm auto;
+            border: 1px solid #d3d3d3;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 1.3em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        /* 사진 올리는 곳 */
+        .photo-placeholder {
+            width: 100%;
+            height: 200mm; /* 사진 영역을 넉넉하게 */
+            max-height: 40vh; /* 화면에서는 너무 크지 않게 */
+            border: 2px dashed #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            color: #777;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        /* 각 항목 */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item .prompt {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .item .guide-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        /* 손으로 쓸 수 있는 빈 칸 (한 줄) */
+        .fill-in-line {
+            width: 100%;
+            border-bottom: 1.5px dotted #777;
+            height: 2.0em; /* 줄 간격 확보 */
+            box-sizing: border-box;
+        }
+
+        /* 손으로 쓸 수 있는 빈 칸 (여러 줄) */
+        .fill-in-box {
+            width: 100%;
+            height: 120px; /* 넉넉한 높이 */
+            border: 1.5px dotted #aaa;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+
+        /* 인쇄 전용 스타일 */
+        @media print {
+            body {
+                background-color: #fff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .page {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                padding: 0; /* @page에서 여백을 관리합니다 */
+            }
+
+            h1, h2, .item {
+                /* 페이지가 어설프게 나뉘는 것을 방지 */
+                page-break-inside: avoid;
+            }
+
+            .photo-placeholder {
+                height: 180mm; /* 인쇄 시 사진 영역 크기 */
+                max-height: 180mm;
+            }
+            
+            .fill-in-box {
+                height: 100px; /* 인쇄 시 높이 고정 */
+            }
+        }
+
+        /* A4 용지 규격 및 여백 설정 */
+        @page {
+            size: A4;
+            margin: 20mm; /* 실제 인쇄 여백 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- A4 페이지 영역 -->
+    <div class="page">
+        <h1>나의 사진 작품 학습지</h1>
+
+       
+        <!-- 기본 정보 -->
+        <h2>기본 정보</h2>
+        <div class="item">
+            <div class="prompt">작품 제목:</div>
+            <div class="guide-text">(사진에 붙이고 싶은 이름)</div>
+            <div class="fill-in-line"></div>
+        </div>
+        <div class="item">
+            <div class="prompt">촬영 날짜와 장소:</div>
+            <div class="guide-text">(언제, 어디서 찍었는지)</div>
+            <div class="fill-in-line"></div>
+        </div>
+
+        <!-- 작품 의도 및 감상 포인트 -->
+        <h2>작품 의도 및 감상 포인트</h2>
+        <div class="item">
+            <div class="prompt">이 사진을 찍게 된 이유:</div>
+            <div class="guide-text">(무엇이 마음을 끌었는지, 왜 이 순간을 담고 싶었는지)</div>
+            <div class="fill-in-box"></div>
+        </div>
+        <div class="item">
+            <div class="prompt">사진 속 이야기:</div>
+            <div class="guide-text">(사진 속에 담긴 상황이나 배경 이야기)</div>
+            <div class="fill-in-box"></div>
+        </div>
+        <div class="item">
+            <div class="prompt">표현하고 싶었던 것:</div>
+            <div class="guide-text">(어떤 느낌이나 생각을 전하고 싶었는지)</div>
+            <div class="fill-in-box"></div>
+        </div>
+        <div class="item">
+            <div class="prompt">촬영할 때 특별히 신경 쓴 점:</div>
+            <div class="guide-text">(각도, 빛, 구도 등에서 고민한 부분이나 사진의 특징)</div>
+            <div class="fill-in-box"></div>
+        </div>
+
+        <!-- 감상 안내 -->
+        <h2>감상 안내</h2>
+        <div class="item">
+            <div class="prompt">친구들이 특히 봐줬으면 하는 부분:</div>
+            <div class="guide-text">(다른 사람들이 사진의 어느 부분을 자세히 보면 좋을지)</div>
+            <div class="fill-in-box"></div>
+        </div>
+        <div class="item">
+            <div class="prompt">이 사진을 보는 사람이 느꼈으면 하는 것:</div>
+            <div class="guide-text">(관람객에게 전하고 싶은 감정이나 메시지)</div>
+            <div class="fill-in-box"></div>
+        </div>
+
+        <!-- 제작 후기 -->
+        <h2>제작 후기</h2>
+        <div class="item">
+            <div class="prompt">촬영하면서 느낀 점:</div>
+            <div class="guide-text">(사진을 찍으며 배우거나 깨달은 것)</div>
+            <div class="fill-in-box"></div>
+        </div>
+        <div class="item">
+            <div class="prompt">다시 찍는다면:</div>
+            <div class="guide-text">(아쉬운 점이나 다르게 하고 싶은 점)</div>
+            <div class="fill-in-box"></div>
+        </div>
+
+    </div> <!-- .page 끝 -->
+
+</body>
+</html>
