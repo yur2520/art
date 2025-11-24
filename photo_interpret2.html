@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 해설 대본 카드 (A4 2분할)</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        /* 기본 설정 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: 'Pretendard', sans-serif;
+            -webkit-print-color-adjust: exact;
+        }
+
+        /* 화면에만 보이는 컨트롤러 */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        /* 카드 컨테이너 (화면 중앙 정렬용) */
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        /* 화면에서 보이는 카드 스타일 (A5 크기 유지) */
+        .card {
+            width: 210mm;
+            height: 148mm;
+            background: white;
+            box-sizing: border-box;
+            padding: 15mm; /* 여백 */
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #ddd; /* 화면에서 구분선 */
+        }
+
+        /* 헤더: 학생 이름 및 번호 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #555;
+        }
+
+        .work-title {
+            font-size: 20pt;
+            font-weight: 800;
+            color: #000;
+        }
+
+        /* 본문 텍스트 */
+        .content {
+            font-size: 12pt;
+            line-height: 1.6;
+            text-align: justify;
+            color: #222;
+            flex-grow: 1;
+        }
+
+        /* ★★★ 인쇄 설정 수정 (핵심 부분) ★★★ */
+        @media print {
+            @page {
+                size: A4 portrait; /* A4 세로 설정 */
+                margin: 0; /* 여백 제거 (브라우저 기본 여백 방지) */
+            }
+            
+            body {
+                background: white;
+                margin: 0;
+            }
+
+            .controls {
+                display: none;
+            }
+
+            .page-container {
+                display: block; /* Flex 해제하여 자연스러운 흐름 유도 */
+                padding: 0;
+                margin: 0;
+            }
+
+            .card {
+                width: 210mm; /* A4 너비 */
+                height: 148.5mm; /* A4 높이(297mm)의 정확히 절반 */
+                margin: 0; /* 마진 제거 */
+                box-shadow: none;
+                border: none;
+                /* 절취선이 필요하면 아래 주석을 해제하세요 */
+                /* border-bottom: 1px dashed #ccc; */
+                
+                page-break-inside: avoid; /* 카드 내부에서 잘림 방지 */
+                page-break-after: auto; /* 기본적으로 페이지 넘김 없음 */
+                float: none; 
+            }
+
+            /* 짝수 번째 카드(2, 4, 6...) 뒤에서 페이지 넘김 */
+            .card:nth-of-type(2n) {
+                page-break-after: always;
+                border-bottom: none; /* 페이지 끝에는 절취선 없음 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button class="btn" onclick="window.print()">🖨️ 인쇄하기 (A4 2-Up)</button>
+    </div>
+
+    <div class="page-container">
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">1. 소윤</div>
+                <div class="work-title">&lt;밖에, 풍경&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품은 10월 29일에 찍었고, 학교 놀이터를 담은 작품입니다.<br><br>
+                사진 촬영 수업에서 프레임 속 프레임 기법이라는 것을 알게 되었는데, 거리가 서로 다른 사물을 통해 사진 자체에 틀이 있는 것처럼 표현할 수 있다고 합니다.<br><br>
+                나뭇잎 너머로 보이는 하늘이 아름다워 위를 보고 사진을 찍었습니다. 맑은 하늘 자체도 예쁘지만, 햇살을 받아 투명한 녹색으로 빛나는 나뭇잎과 그 너머의 공간감이 조형적 아름다움을 더해준다고 생각했습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">1. 소윤</div>
+                <div class="work-title">&lt;시골 강아지&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 이 작품의 제목은 &lt;시골 강아지&gt;입니다. 8월 17일에 할머니 댁에서 찍은 사진입니다. 쳐다보는 강아지의 모습이 너무 귀여워서 찍게 되었습니다.<br><br>
+                맑은 눈과 혀를 내밀고 있는 모습에서 느껴지는 사랑스러움이 포인트입니다. 강아지의 포슬해 보이는 털이 꼬리와 함께 금방이라도 살랑일 것 같은 사진입니다.
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="header">
+                <div class="student-info">3. 서하</div>
+                <div class="work-title">&lt;동생고기&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품은 &lt;동생고기&gt;입니다. 사진에 나온 사람은 저의 동생입니다. 이 사진은 2025년 여름에 찍었습니다. <br><br>
+                예전에 유행했던 재미있는 사진을 떠올리며 동생이 고기를 많이 안 먹어서 동생을 고기로 만드는 상상을 하며 각도를 맞추어 찍었습니다. 
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="header">
+                <div class="student-info">3. 서하</div>
+                <div class="work-title">&lt;토끼 구름&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품은 &lt;토끼 구름&gt;입니다. 이 사진은 2025년 봄해 찍었습니다. 제가 토끼를 엄청 좋아하는데 토끼 모양의 구름이 눈에 들어와서 찍게 되었습니다.<br><br>
+                토끼 구름뿐만 아니라 주변의 풍경이 선명하고 색감이 마음에 들어서 이 사진을 전시하게 되었습니다. 감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">4. 유빈</div>
+                <div class="work-title">&lt;빛으로 향하는 계단&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;빛으로 향하는 계단&gt;을 소개합니다. 이 사진은 올해 10월 29일 오전 열한 시 전후로 촬영되었습니다.<br><br>
+                평범해 보이는 학교 계단이지만 아래쪽의 어두운 공간에서 위쪽의 밝은 빛으로 시선이 자연스럽게 이끌리는 구도를 생각하며 촬영한 작품입니다.<br><br>
+                계단은 단순히 위층으로 올라가는 구조물에 불과하지만, 사진 작품에서는 종종 도전의 상징으로 쓰이고는 합니다. 위쪽에서 들어오는 빛은 마치 용기를 내 꿈에 도전을 하는 우리 학교 친구들을 부르는 것 같다고 생각했습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">4. 유빈</div>
+                <div class="work-title">&lt;시간의 흔적&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;시간의 흔적&gt;에 대해 소개하겠습니다. 이 사진은 2025년 9월 중반에 마을교육 체험학습을 갔다가 촬영한 사진입니다. 사진에는 “등용문”이라고 적힌 글자가 보입니다.<br><br>
+                저는 옛 성문의 모습이라고 생각했는데, 나중에 살펴보니 등용문은 성공을 하기 위한 관문이나 시험을 가리키는 말이라고 합니다.<br><br>
+                옛날 이 문을 지나다니던 사람들은 어떤 생각을 했을지 궁금해집니다. 시간이 지나며 낡은 구조물이라는 게 한눈에 느껴지지만, 변함없이 떠 있는 하늘의 구름과 주변의 나무들은 자연과 역사의 조화를 느끼게 합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">5. 슬</div>
+                <div class="work-title">&lt;목장&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;목장&gt;을 소개합니다. 이 사진은 올해 10월에 찍은 것입니다.<br><br>
+                평범한 길이지만 실제로는 멋진 하늘과 푸른 하늘이 돋보이고 양들도 귀엽습니다. 사진을 볼 때면 순했던 양들이 기억납니다.<br><br>
+                비록 날씨는 조금 흐렸지만 양들 덕분에 멋진 사진 작품을 만들 수 있었습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">5. 슬</div>
+                <div class="work-title">&lt;풍차거리&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 제주도 풍차 거리를 소개합니다. 이 사진은 6월에 제주도에서 차를 타며 가다가 관광지로 널리 알려진 풍차거리를 보고 찍은 것입니다.<br><br>
+                사진으로 보았을 때는 작고 초라하게 느껴질지 몰라도, 실제로는 무척 크고 푸르고 깨끗한 하늘이 인상적인 곳입니다. 잔디도 넓게 펼쳐져 있고 빽빽해서 마치 영화 속에 들어온 것 같았습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">6. 다은</div>
+                <div class="work-title">&lt;오로라빛 하늘&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품인 ‘오로라빛 하늘’을 소개하겠습니다. 이 사진은 2025년 여름, 할머니 댁에 가는 길에 차 안에서 찍은 사진입니다.<br>
+                저는 이 사진을 통해 빛의 반사가 불러낸 오로라를 표현하고자 하였습니다.<br><br>
+                일상에서 그냥 지나치기 쉬운 평범한 하늘이지만, 유리에 반사된 오로라빛 그림자를 겹쳐 바라보면 독특하고 신비로운 느낌을 받을 수 있습니다. 구도와 빛의 반사에 따라 같은 세상도 마법처럼 색다른 느낌을 전달할 수 있다는 것을 알았습니다. 제 작품 또한 차의 창문에서 햇빛이 만들어낸 반사광을 활용하여 마법 같은 사진을 만들어 냈습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">6. 다은</div>
+                <div class="work-title">&lt;추석의 대보름달&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요! 제 작품 &lt;추석의 대보름달&gt;을 소개하겠습니다. 이 사진은 2025년 10월 5일 추석 연휴에 할머니 댁 쪽 레스토랑에서 나오는 길에 달이 아름다워 촬영했습니다.<br><br>
+                저는 이 사진을 통해 ‘신기한 진짜 달의 모습’의 느낌을 담고 싶었습니다. 핸드폰으로 위성사진같이 선명하게 찍을 수 있다는 게 신기했습니다.<br><br>
+                촬영할 때에는 카메라 확대를 30배로 올려서 찍었습니다. 달의 바다를 주목해서 봐 주시고, 대보름달의 행운을 느끼셨으면 좋겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">7. 소영</div>
+                <div class="work-title">&lt;운동장&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 학교 안에서 찍은 운동장을 소개하겠습니다. 2025년도 10월에 찍었고, 운동장의 모습을 표현하였습니다.<br><br>
+                학교 사진 촬영 수업 시간에 무엇을 찍을지 고민하다가, 위에서 내려다본 우리 학교의 예쁜 운동장을 표현하고 싶어져 이 사진을 찍게 되었습니다.<br>
+                감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">7. 소영</div>
+                <div class="work-title">&lt;드라마 촬영장&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 드라마 촬영장을 소개하겠습니다. 2025년도 9월에 찍었고, 드라마 촬영장을 찍은 사진입니다.<br><br>
+                사진 촬영 수업에서 가까운 곳의 물체와 멀리 있는 풍경을 조화시키는 프레임 속 프레임 기법을 배웠는데 이 기법을 활용하여 드라마 촬영장의 아름다운 풍경을 공간감 있게 담고 싶었습니다.<br>
+                감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">8. 지혜</div>
+                <div class="work-title">&lt;구름&gt;</div>
+            </div>
+            <div class="content" style="font-size: 11pt;">
+                안녕하세요. 제 작품 구름을 소개하겠습니다. 이 사진은 2025년 9월 30일, 아파트 뒤 놀이터로 가는 길에 구름이 아름답고 하트 모양이어서 촬영했습니다.<br><br>
+                저는 이 사진을 통해 ‘새로운 구름’의 느낌을 담고 싶었습니다. 나무들 위로 떠오르는 구름이 마치 사랑처럼 느껴졌기 때문입니다. 오전이 지나고 오후가 오듯이, 힘든 일이 있어도 새로운 일이 온다는 의미를 표현하고 싶었습니다.<br><br>
+                구름의 층이 더 잘 보이도록 낮은 각도에서 위를 올려다보며 찍었고, 시선의 흐름이 자연스럽게 구름으로 향하도록 구도를 잡았습니다. 이 사진을 보시는 분들께서 구름의 부드럽고 몽글몽글한 느낌에 마음이 편안해졌으면 합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">8. 지혜</div>
+                <div class="work-title">&lt;노을이 사르륵&gt;</div>
+            </div>
+            <div class="content" style="font-size: 11pt;">
+                안녕하세요. 제 작품 노을이 사르륵을 소개합니다. 이 사진은 2025년 4월 30일, 학원이 끝나고 집에 가는 길에서 촬영했습니다. 노을 진 하늘이 무척 아름다웠습니다.<br><br>
+                저는 이 사진을 통해 ‘새로운 노을’의 느낌을 담고 싶었습니다. 아파트 사이로 떠오르는 노을이 마치 사랑처럼 느껴졌기 때문입니다. 낮이 지나고 밤이 오듯이, 힘든 날이 있어도 새로운 날이 온다는 의미를 표현하고 싶었습니다.<br><br>
+                구름과 노을의 층이 잘 보이도록 낮은 각도에서 위를 올려다보며 촬영하였고, 시선이 자연스럽게 노을의 중심으로 향하도록 구도를 잡았습니다. 이 사진을 보시는 분들도 노을의 따뜻함을 느끼셨으면 좋겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">9. 은체</div>
+                <div class="work-title">&lt;드라마 촬영장&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;드라마 촬영장&gt;을 소개하겠습니다. 이 사진은 5학년 2학기, 수업 과제 중에 너무 예쁜 건물이 있어서 촬영하게 되었습니다.<br><br>
+                이 건물은 드라마 촬영장이 만들어진 후 얼마 되지 않아 지어졌다고 합니다. 오래 된 건물이다 보니 더러워지고 낡아졌지만, 그 건물만이 주는 분위기는 여전히 살아있습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">9. 은체</div>
+                <div class="work-title">&lt;나무&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;나무&gt;를 소개하겠습니다. 이 사진은 5학년 2학기 우리 학교의 왕꿈틀이 놀이터에서 찍었습니다.<br><br>
+                학교의 사진 촬영 수업을 진행하던 중, 교정에 있는 나무가 아름다워 이 모습을 모두에게 알리고 싶었습니다.<br>
+                감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">10. 예주</div>
+                <div class="work-title">&lt;바다에 비친 풍경&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;바다에 비친 풍경&gt;을 소개합니다.<br><br>
+                이 작품은 10월 말에 여수에서 촬영한 사진입니다.<br>
+                여수에서 노을이 질 때 바다에 비치는 햇빛의 모습이 너무나 아름다워서 찍게 되었습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">10. 예주</div>
+                <div class="work-title">&lt;창 밖의 풍경&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;창 밖의 풍경&gt;을 소개합니다.<br><br>
+                이 작품은 8월 19일에 촬영한 사진입니다. 거제도에서 순천으로 돌아오는 도로 위에서 차창 너머의 풍경을 보았는데, 구름이 무척 예뻐서 찍었습니다.<br>
+                한여름의 맑고 환한 기억을 불러들이는 사진입니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">11. 서연</div>
+                <div class="work-title">&lt;불닭따라딱따구리&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;불닭따라딱따구리&gt;를 소개하겠습니다. 이 사진은 2025년 9월 초, 배가 고파 불닭을 먹다가 너무 맛있어서 찍은 사진입니다.<br><br>
+                저는 이 사진을 통해 배가 고파질 때의 느낌을 담고 싶었습니다. 배가 고팠던 만큼 음식도 맛있었지만 사진도 잘 찍혀서 무척 행복한 기분이 들었거든요.<br><br>
+                다른 사람들도 이 사진을 보며 무언가 먹고 싶어지는 느낌을 받을 수 있도록, 조명을 켜서 반짝거리는 윤기를 더했습니다. 먹음직스럽게 표현된 음식에 집중하여 감상해 주세요.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">11. 서연</div>
+                <div class="work-title">&lt;치키키키키키인&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;치키키키키키인&gt;을 소개하겠습니다. 이 사진은 9월 25일 집에서 아빠가 시켜주신 맛있는 치킨의 모습을 담았습니다.<br><br>
+                사진을 통해 치킨을 먹기 직전의 기대감, 그리고 노릇하고 달콤짭짤 맛있는 행복감을 담고 싶었습니다.<br><br>
+                특히 이 소스가 맛있고 먹음직스러운 색감을 가지고 있어 이러한 조화에 집중하여 감상해 주시면 감사하겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">12. 민</div>
+                <div class="work-title">&lt;우리집 고양이 츄르를 좋아해&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품의 제목은 &lt;우리집 고양이 츄르를 좋아해&gt;입니다.<br><br>
+                이 사진은 2025년 11월 3일 월요일, 언니의 방에서 촬영했습니다. 고양이를 보고 싶어서 언니 방에 들어갔는데, 츄르를 많이 먹어서 포동하게 살이 찐 고양이의 배가 보여 쓰다듬으며 찍은 사진입니다.<br><br>
+                어두운 방에서도 뚱뚱해 보이는 귀여운 배에 주목해 주세요.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">12. 민</div>
+                <div class="work-title">&lt;구름 너머의 숨결&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;구름 너머의 숨결&gt;을 소개합니다. 이 사진은 2025년 10월 5일 일요일, 다이소에 가는 길에 달과 그 옆에 모인 구름들이 예뻐서 찍은 사진입니다.<br><br>
+                빛이 구름을 뚫고 나오는 느낌을 시적으로 표현하고 싶어 &lt;구름 너머의 숨결&gt;이라는 제목을 붙였습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">13. 준서</div>
+                <div class="work-title">&lt;우리학교 놀이터&gt;</div>
+            </div>
+            <div class="content">
+                저는 우리학교 놀이터를 좋아해서, 우리 학교 놀이터를 소재로 한 작품을 찍고 싶었습니다.<br><br>
+                제 작품은 2025년에 찍었고 우리 반에서 바라본 왕꿈틀이 놀이터의 모습을 촬영한 것입니다.<br><br>
+                작품을 통해 우리 학교의 아름다운 놀이터 풍경과 놀이터에서 자라고 있는 아름다운 나무들의 모습을 봐 주셨으면 좋겠습니다.
+            </div>
+        </div>
+
+        <div class="card"></div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">14. 태원</div>
+                <div class="work-title">&lt;노을진 바다&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;노을진 바다&gt;를 소개하겠습니다. 이 사진은 2025년 10월 11일, 여수에서 촬영하였습니다. 저녁 때 바다에 가니 풍경이 아름다워서 카메라를 꺼내 들게 되었습니다.<br><br>
+                저는 이 사진을 통해 ‘해가 지는 모습’의 느낌을 담고 싶었습니다. 이 사진을 보시는 분들께서 노을이 질 때의 따뜻함을 느꼈으면 좋겠습니다.<br>
+                특히 하늘의 색감에 주목해 주시면 감사하겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">14. 태원</div>
+                <div class="work-title">&lt;불타는 하늘&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;불타는 하늘&gt;을 소개하겠습니다. 이 사진은 2025년 9월 2일, 저녁에 학원이 끝나고 집에 가는 길에 풍경이 아름다워서 촬영했습니다.<br><br>
+                저는 이 사진을 통해 집에 가는 길의 ‘편안함’을 담고 싶었습니다.<br>
+                이 사진을 보시는 분들도 하루를 마무리할 때의 편안한 느낌을 느끼셨으면 합니다. 특히 하늘과 아파트의 조화에 주목해 주시면 감사하겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">15. 두현</div>
+                <div class="work-title">&lt;제일 잘 찍은 사진&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;제일 잘 찍은 사진&gt;입니다.<br><br>
+                캠핑을 갔을 때 노을이 예뻐서 찍었습니다. 그런데 이 사진은 제가 찍은 사진 중에서 가장 잘 찍은 사진입니다.<br>
+                이 사진이 좋은 이유는 노을이 잘 찍혔기 때문입니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">15. 두현</div>
+                <div class="work-title">&lt;깨끗한 변기&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;깨끗한 변기&gt;입니다.<br><br>
+                똥이 없이 깨끗한 변기를 찍었습니다. 똥이 있는 것보다는 없는 것이 낫습니다. 그리고 이 변기는 다른 변기보다 더 깨끗한 상태였습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">16. 시우</div>
+                <div class="work-title">&lt;고요한 우리 학교&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;고요한 우리 학교&gt;를 소개하겠습니다. 이 사진은 2025년 10월 학교 건물 안에서 창문을 통해 보이는 운동장을 촬영한 것입니다.<br><br>
+                전시할 사진을 찍으러 복도를 지나가다가 복도에 있는 창문을 슬쩍 봤는데, 사람 한 명 없고 날씨도 괜찮아서 찍어 보았습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">16. 시우</div>
+                <div class="work-title">&lt;달&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;달&gt;을 소개하겠습니다. 이 사진은 2025년 11월에 제가 밤 산책을 하러 나갔다 우연히 본 달을 촬영한 것입니다.<br><br>
+                그렇지만 사진에 달의 또렷한 모습이 아니라 이런 모습이 나왔습니다. 그래도 이 모습도 마음에 들어서 전시하게 되었습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">17. 대한</div>
+                <div class="work-title">&lt;학교&gt;</div>
+            </div>
+            <div class="content">
+                올해 여름에 창문에서 찍은 작품입니다. 이 사진을 찍은 이유는 해가 너무 멋져서입니다.<br><br>
+                사진에 얽힌 특별한 이야기는 없지만, 대신 창문 밖의 멋진 풍경을 담을 수 있도록 구도를 신경 써서 촬영하였습니다.<br>
+                창문과 그 너머의 풍경을 멋지게 봐주면 좋겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">17. 대한</div>
+                <div class="work-title">&lt;드라마 촬영장&gt;</div>
+            </div>
+            <div class="content">
+                올해 여름에 드라마 촬영장에 가서 찍은 작품입니다. 이 사진을 찍은 이유는 너무 예뻐서입니다.<br><br>
+                상황은 없었고, 낡았지만 옛 모습을 간직한 건물을 온전히 담을 수 있도록 구도를 신경썼습니다. 건물과 구도를 멋지게 봐 주면 좋겠습니다.<br>
+                사진은 예쁘다고 생각합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">18. 승호</div>
+                <div class="work-title">&lt;나무&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;나무&gt;를 소개하겠습니다. 이 사진은 2025년 10월 3일 전후에 학교에서 사진 수업을 하다가 찍게 되었습니다.<br><br>
+                원래 다른 곳을 찍으려고 했지만 실수로 다른 곳을 찍었는데, 구도가 잘 나와서 올리게 되었습니다. 나무가 정중앙에 위치하고 구도도 잘 맞추어 찍은 것 같습니다.<br><br>
+                이 사진을 보시는 분들께서 왕꿈틀이의 따뜻함을 느끼셨으면 좋겠습니다. 감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">18. 승호</div>
+                <div class="work-title">&lt;해&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;해&gt;를 소개하겠습니다. 이 사진은 2024년 8월 6일, 캐나다의 호수에서 카약을 타다가 마침 해가 지고 있어서 촬영했습니다.<br><br>
+                호수 아래로 내려가는 것처럼 물결에 반사되는 햇빛이 멋지게 보여, 사진을 통해 햇빛이 번지는 아름다움을 담아내고 싶었습니다.<br><br>
+                촬영할 때에는 해가 잘 보이게 하기 위해 정면을 보며 찍었습니다. 이 사진을 보시는 분들께서 해의 따뜻함을 느끼셨으면 좋겠습니다. 감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">19. 민준</div>
+                <div class="work-title">&lt;왕꿈틀이&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 1작품 왕꿈틀이를 소개하겠습니다. 이 사진은 11월 7일에 학교 놀이터에서 풍경이 멋져 촬영했습니다.<br><br>
+                이 사진을 보면 마음이 좋아지는 것 같아서 소개합니다. 카메라를 살짝 위로 들고 찍었습니다. 다른 사람들도 봐 주었으면 좋겠습니다. 감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">19. 민준</div>
+                <div class="work-title">&lt;왕꿈틀이 2&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 2작품 왕꿈틀이 2를 소개하겠습니다. 이 작품은 8월 27일에 촬영했습니다.<br><br>
+                이 사진은 구름이 만화 같고 예쁩니다. 구름을 보면 마음이 평온해 집니다. 카메라를 115도에서 하늘을 보고 찍었습니다.<br>
+                이 사진도 다른 사람들이 봐주었으면 좋겠습니다. 감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">20. 주승</div>
+                <div class="work-title">&lt;히타카츠 바닷가&gt;</div>
+            </div>
+            <div class="content" style="font-size: 11pt;">
+                2025년 6월 6일 촬영한 이 사진은 가족들과 여행 갔을 때 히타카츠 바닷가를 촬영한 작품입니다.<br><br>
+                잔잔한 파도가 부드럽게 모래사장을 감싸고, 작은 물결 사이로 햇빛이 반짝입니다. 멀리 보이는 바위섬은 단조로워 보일 수 있는 수평선을 장식하며 균형을 이룹니다.<br><br>
+                히타카츠 바닷가의 고요함과 평화로운 느낌을 예술적으로 전달하고자 하였습니다. 수평선을 맞추어 안정감을 담고, 맑은 물빛이 깊이에 따라 변화하는 모습을 통해 자연의 아름다움을 담았습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">20. 주승</div>
+                <div class="work-title" style="font-size: 16pt;">&lt;드라마 세트장의 이야기&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;드라마 세트장의 이야기&gt;입니다.<br><br>
+                드라마 세트장의 영화관이 중심이 되고, 노란 자동차가 시선을 끄는 작품입니다.<br>
+                매우 차분한 색감을 가지고 있으니 이 부분에 집중하여 감상해주시면 감사하겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">21. 선호</div>
+                <div class="work-title">&lt;얼굴 확대&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;얼굴 확대&gt;입니다.<br><br>
+                이 사진은 얼굴을 가까이에서 찍었을 때의 재미있고 웃긴 모습을 표현하고 싶어 촬영한 사진입니다.
+            </div>
+        </div>
+
+        <div class="card"></div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">22. 효준</div>
+                <div class="work-title">&lt;옛날 택시&gt;</div>
+            </div>
+            <div class="content" style="font-size: 11pt;">
+                안녕하세요. 제 작품 &lt;옛날 택시&gt;를 소개하겠습니다. 이 사진은 2025년 드라마세트장에서 돌아다니다가 택시가 눈에 띄어 촬영하게 되었습니다.<br><br>
+                이 작품은 택시가 중심 소재인데, 오늘날과는 다른 택시의 모습에 주목해 주셨으면 좋겠습니다. 저물어가는 과거의 평화로움을 표현하기 위해 AI를 통해 노을 지는 시간으로 보정을 하였습니다.<br><br>
+                이 사진을 보는 여러분도 옛 풍경의 평화로운 감정을 느끼셨으면 합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">22. 효준</div>
+                <div class="work-title">&lt;눕고 싶은 효준이&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 두 번째 작품을 소개하겠습니다. 이 작품은 2025년에 촬영되었습니다.<br><br>
+                여기서 주목해 주면 좋은 점은 제 얼굴이고, 이 사진은 재미있어 보여서 찍었는데 낮은 곳에서 높이를 낮추어 촬영한 구도 덕분에 더 재미 있는 사진이 되었습니다.<br>
+                사람들이 이 사진을 보며 웃으면 좋겠습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">23. 한교</div>
+                <div class="work-title">&lt;드론 쇼&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;드론 쇼&gt;를 소개하고자 합니다. 2025년 10월 18일 드론 쇼를 보기 위해 오천 그린광장을 방문하였다가 찍은 사진입니다.<br><br>
+                그 곳에서 앉아 옆을 보았더니 풍경이 아름다워 사진을 찍게 되었습니다. 사진을 찍을 당시 다리와 나무들이 이루는 각도를 맞추어 안정적인 구도를 이루게 하였고, 이를 통해 원근감을 살렸습니다.<br><br>
+                이러한 조형 요소들에 주목하여 작품을 감상하여 주셨으면 합니다. 감사합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <div class="student-info">23. 한교</div>
+                <div class="work-title">&lt;평지&gt;</div>
+            </div>
+            <div class="content">
+                안녕하세요. 제 작품 &lt;평지&gt;를 소개하겠습니다. 이 사진은 2025년 8월 16일 아미 미술관에서 찍었습니다.<br><br>
+                전날에 비가 와서 바지에 잔디가 잔뜩 묻었지만 풍경에 홀려서 찍었습니다. 사진을 찍고 집에 와서 다시 가서 놀고 싶다는 생각이 들었습니다.<br>
+                이 사진을 보시고 저기 가고 싶다는 생각이 들면 좋겠습니다. 감사합니다.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
