@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국 시조</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nanum Myeongjo', serif;
+            background-color: #f4f0e6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d6cfc7' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #2c2825;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* 단어 하이라이트 스타일 */
+        .word-highlight {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #991b1b;
+            text-underline-offset: 4px;
+            cursor: help;
+            color: #7f1d1d;
+            font-weight: bold;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .word-highlight:hover {
+            background-color: rgba(153, 27, 27, 0.1);
+            border-radius: 4px;
+        }
+
+        /* 툴팁 스타일 */
+        #tooltip {
+            position: fixed;
+            background-color: #292524;
+            color: #fafaf9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            max-width: 280px;
+            word-break: keep-all;
+            line-height: 1.5;
+            transform: translate(-50%, -100%);
+            margin-top: -10px;
+        }
+        #tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -6px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: #292524 transparent transparent transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
+
+    <!-- Header Section -->
+    <header class="text-center mb-16 relative w-full max-w-4xl">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 w-24 h-24 bg-red-800 rounded-full opacity-10 blur-xl"></div>
+        <p class="text-stone-500 text-sm mb-3 tracking-[0.3em]">한국 선비들의 전통 음악</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-stone-800 mb-6 tracking-tight">시조 <span class="text-2xl sm:text-3xl font-light text-stone-500 align-top ml-2">時調</span></h1>
+        <div class="w-16 h-1 bg-stone-800 mx-auto rounded-full mb-8"></div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="max-w-3xl w-full bg-white bg-opacity-60 backdrop-blur-sm rounded-xl p-8 md:p-12 mb-16 border border-stone-200 shadow-sm relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-1 h-full bg-stone-800"></div>
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+            <span class="w-2 h-2 bg-red-700 rounded-full mr-3"></span>
+            시조란 무엇인가
+        </h2>
+        <div class="leading-9 text-lg text-stone-700 space-y-4 break-keep">
+            <p>
+                <span class="text-red-800 font-bold text-xl">시조</span>는 3장 형식으로 된 전통 성악의 한 장르입니다. 
+                시조는 느린 템포로 3음 음계로 구성되어 있고, 노래 부르는 사람이 악기 반주 없이 장구 반주나 손장단에 맞추어 부릅니다.
+            </p>
+            <p>
+                보통 정해진 가락에 노랫말만 바꾸어 부르는 것이 특징입니다. 
+                즉, 시조의 선율을 한 번만 익히면 모든 시조 시를 노랫말로 부를 수 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sijo Grid Section -->
+    <main class="w-full max-w-6xl">
+        <h3 class="text-center text-2xl text-stone-600 mb-10 font-bold">대표적인 평시조 작품 감상하기</h3>
+        <p class="text-center text-stone-500 mb-8 text-sm">※ 붉은 점선 밑줄이 있는 단어와 인물 이름을 누르면 설명을 볼 수 있습니다.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="sijo-container">
+            <!-- Cards will be injected by JS -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-center text-stone-400 text-sm pb-8">
+        <p>출처 및 참고자료 | 초등학교 음악 5.(주)금성출판사.2025.</p>
+        <p>본 페이지는 교육 자료로 제작되었습니다.</p>
+    </footer>
+
+    <!-- Global Tooltip Element -->
+    <div id="tooltip"></div>
+
+    <script>
+        // Data containing the Sijo poems provided by the user
+        // Added <span> tags for difficult words with data-desc attribute
+        // Added authorDesc for specific authors
+        // Added descriptions in 'desc' field with highlights
+        const sijoList = [
+            {
+                author: "양사언",
+                authorDesc: "조선 전기의 문신이자 서예가",
+                content: [
+                    "태산이 높다 <span class='word-highlight' data-desc='한다고 한들 (가정)'>한들</span> 하늘 아래 <span class='word-highlight' data-desc='산(山)의 순우리말'>뫼</span>이로다",
+                    "오르고 또 오르면 못 오를 리 없건마는",
+                    "사람이 제 아니 오르고 <span class='word-highlight' data-desc='산만, 산을 탓하며'>뫼만</span> 높다 하더라"
+                ],
+                desc: "노력의 중요성을 강조하는 <span class='word-highlight' data-desc='가르침'>교훈</span>을 담은 곡입니다."
+            },
+            {
+                author: "월산대군",
+                authorDesc: "조선 9대 왕 성종의 형",
+                content: [
+                    "<span class='word-highlight' data-desc='가을의 강'>추강(秋江)</span>에 밤이 드니 물결이 <span class='word-highlight' data-desc='차갑구나'>차노매라</span>",
+                    "낚시 <span class='word-highlight' data-desc='낚싯대를 드리우니 (던져 넣으니)'>드리치니</span> 고기 아니 <span class='word-highlight' data-desc='무는구나'>무노매라</span>",
+                    "<span class='word-highlight' data-desc='욕심이 없는 마음'>무심(無心)</span>한 달빛만 싣고 빈 배 저어 오노라"
+                ],
+                desc: "자연 속에서의 <span class='word-highlight' data-desc='속세에 얽매이지 않고 자유롭게 지냄'>유유자적</span>한 삶을 노래한 작품입니다."
+            },
+            {
+                author: "이방원",
+                title: "하여가(何如歌)",
+                content: [
+                    "이런들 어떠하며 저런들 어떠하리",
+                    "<span class='word-highlight' data-desc='개성(송도)에 있는 산의 이름'>만수산(萬壽山)</span> <span class='word-highlight' data-desc='칡덩굴'>드렁칡</span>이 얽혀진들 그 어떠하리",
+                    "우리도 이같이 얽혀 <span class='word-highlight' data-desc='평생토록, 아주 오랫동안'>백년(百年)</span>까지 <span class='word-highlight' data-desc='살아가리라 (부귀영화를 누리리라)'>누리리라</span>"
+                ],
+                desc: "상대방을 <span class='word-highlight' data-desc='잘 타일러서 말을 듣게 함'>회유</span>하며 <span class='word-highlight' data-desc='그때그때 사정에 맞게 일을 처리하는 성질'>융통성</span>을 권유하는 내용을 담고 있습니다."
+            },
+            {
+                author: "정몽주",
+                title: "단심가(丹心歌)",
+                content: [
+                    "이 몸이 죽고 죽어 일백번 <span class='word-highlight' data-desc='다시, 거듭하여'>고쳐</span> 죽어",
+                    "<span class='word-highlight' data-desc='살이 썩고 남은 하얀 뼈'>백골</span>이 <span class='word-highlight' data-desc='흙과 먼지가 되어'>진토되어</span> 넋이라도 있고 없고",
+                    "임 향한 <span class='word-highlight' data-desc='한 조각 붉은 마음 (변치 않는 충성심)'>일편단심</span>이야 <span class='word-highlight' data-desc='변할, 없어질'>가싈</span> 줄이 이시랴"
+                ],
+                desc: "고려에 대한 굳은 <span class='word-highlight' data-desc='신념을 굽히지 않는 굳은 태도'>절개</span>와 <span class='word-highlight' data-desc='임금을 진심으로 섬기는 마음'>충성심</span>을 표현한 시조입니다."
+            },
+            {
+                author: "왕방연",
+                authorDesc: "세조 때의 금부도사(오늘날의 검사와 비슷한 역할)",
+                content: [
+                    "천만리 머나먼 길에 고운 님 <span class='word-highlight' data-desc='이별하고, 떠나보내고'>여의옵고</span>",
+                    "내 마음 둘 데 없어 냇가에 앉았으니",
+                    "저 물도 내 <span class='word-highlight' data-desc='마음 속 (속마음)'>안</span> 같아서 울어 밤길 <span class='word-highlight' data-desc='흘러가는구나'>예놋다</span>"
+                ],
+                desc: "단종을 <span class='word-highlight' data-desc='죄인을 멀리 보내어 살게 하던 곳'>유배지</span>에 두고 돌아오는 슬픔을 노래했습니다."
+            },
+            {
+                author: "이순신",
+                content: [
+                    "한산섬 달 밝은 밤에 <span class='word-highlight' data-desc='적의 동태를 살피기 위해 높이 지은 다락집(망루)'>수루</span>에 홀로 앉아",
+                    "큰 칼 옆에 차고 깊은 <span class='word-highlight' data-desc='걱정과 근심'>시름</span>할 적에",
+                    "어디서 한 가락 피리 소리는 남의 <span class='word-highlight' data-desc='창자 (몹시 상한 마음을 비유)'>애</span>를 끓는가"
+                ],
+                desc: "나라를 걱정하는 장군의 <span class='word-highlight' data-desc='나라를 걱정하는 충성스러운 마음'>우국충정</span>이 담겨 있습니다."
+            },
+            {
+                author: "황진이",
+                authorDesc: "조선 전기의 여성 시인",
+                content: [
+                    "<span class='word-highlight' data-desc='음력 11월, 밤이 가장 긴 달'>동짓달</span> 기나긴 밤을 <span class='word-highlight' data-desc='가운데 부분 (허리)'>한 허리</span> 베어내어",
+                    "봄바람 이불 아래 <span class='word-highlight' data-desc='실 등을 둥그렇게 감은 모양'>서리서리</span> 넣었다가",
+                    "정든 임 오신 날 밤이거든 <span class='word-highlight' data-desc='여러 굽이로 구부러지는 모양'>굽이굽이</span> 펴리라"
+                ],
+                desc: "임을 향한 그리움과 기다림의 <span class='word-highlight' data-desc='아름다움'>미학</span>을 표현했습니다."
+            }
+        ];
+
+        const container = document.getElementById('sijo-container');
+
+        // Generate Cards
+        sijoList.forEach((sijo, index) => {
+            const card = document.createElement('div');
+            card.className = "card-shadow bg-[#fffbf0] p-8 rounded-lg border border-stone-200 flex flex-col relative overflow-hidden group";
+            
+            // Decorative background opacity
+            const deco = document.createElement('div');
+            deco.className = "absolute -right-4 -bottom-4 text-9xl text-stone-900 opacity-[0.03] font-serif select-none pointer-events-none group-hover:opacity-[0.06] transition-opacity duration-500";
+            deco.innerText = "詩";
+            card.appendChild(deco);
+
+            const contentHtml = sijo.content.map(line => `<p class="mb-3 leading-loose text-stone-800 text-lg break-keep pl-2 border-l-2 border-transparent group-hover:border-red-800/30 transition-colors duration-300">${line}</p>`).join('');
+
+            const titleHtml = sijo.title ? `<span class="text-xs text-stone-500 block mb-1 font-bold tracking-wider">${sijo.title}</span>` : '';
+
+            // Handle author description display
+            let authorDisplay = sijo.author;
+            if (sijo.authorDesc) {
+                authorDisplay = `<span class='word-highlight' data-desc='${sijo.authorDesc}'>${sijo.author}</span>`;
+            }
+
+            card.innerHTML += `
+                <div class="mb-4 relative z-10">
+                    ${contentHtml}
+                </div>
+                
+                <div class="mt-auto pt-4 border-t border-stone-300 flex justify-between items-end relative z-10">
+                    <div>
+                        ${titleHtml}
+                        <h4 class="text-xl font-bold text-stone-900 flex items-center">
+                            ${authorDisplay}
+                        </h4>
+                    </div>
+                    <span class="text-xs text-stone-500 max-w-[60%] text-right leading-relaxed">${sijo.desc}</span>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Tooltip Logic
+        const tooltip = document.getElementById('tooltip');
+        const highlightedWords = document.querySelectorAll('.word-highlight');
+
+        function showTooltip(e, text) {
+            tooltip.innerHTML = text;
+            tooltip.style.opacity = '1';
+            moveTooltip(e);
+        }
+
+        function hideTooltip() {
+            tooltip.style.opacity = '0';
+        }
+
+        function moveTooltip(e) {
+            const x = e.clientX;
+            const y = e.clientY;
+            // Adjust position if tooltip goes off-screen (simple check)
+            const tooltipWidth = tooltip.offsetWidth;
+            const windowWidth = window.innerWidth;
+            
+            let leftPos = x;
+            if (x + tooltipWidth/2 > windowWidth) {
+                leftPos = windowWidth - tooltipWidth/2 - 10;
+            } else if (x - tooltipWidth/2 < 0) {
+                leftPos = tooltipWidth/2 + 10;
+            }
+
+            tooltip.style.left = leftPos + 'px';
+            tooltip.style.top = (y - 10) + 'px';
+        }
+
+        highlightedWords.forEach(word => {
+            // Mouse Enter (Desktop)
+            word.addEventListener('mouseenter', (e) => {
+                const desc = e.target.getAttribute('data-desc');
+                showTooltip(e, desc);
+            });
+
+            // Mouse Move (Desktop)
+            word.addEventListener('mousemove', (e) => {
+                moveTooltip(e);
+            });
+
+            // Mouse Leave (Desktop)
+            word.addEventListener('mouseleave', () => {
+                hideTooltip();
+            });
+
+            // Click / Touch (Mobile & Desktop)
+            word.addEventListener('click', (e) => {
+                const desc = e.target.getAttribute('data-desc');
+                showTooltip(e, desc);
+                e.stopPropagation();
+            });
+        });
+
+        // Hide tooltip when clicking anywhere else (for mobile ux)
+        document.addEventListener('click', () => {
+            hideTooltip();
+        });
+    </script>
+</body>
+</html>
